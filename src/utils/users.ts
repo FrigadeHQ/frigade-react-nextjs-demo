@@ -1,24 +1,24 @@
 const localStorageFieldUserId = 'frigadeUserId';
 const localStorageFieldOrgId = 'frigadeOrgId';
 
-export function getUserId() {
+export function getUserId(): string {
   if (typeof window === 'undefined' || !window.localStorage) {
     return 'unknown';
   }
   if (!localStorage.getItem(localStorageFieldUserId)) {
     generateNewUserId();
   }
-  return localStorage.getItem(localStorageFieldUserId);
+  return localStorage.getItem(localStorageFieldUserId) ?? 'unknown'';
 }
 
-export function getOrganizationId() {
+export function getOrganizationId(): string {
   if (typeof window === 'undefined' || !window.localStorage) {
     return 'unknown';
   }
   if (!localStorage.getItem(localStorageFieldOrgId)) {
     generateNewOrganizationId();
   }
-  return localStorage.getItem(localStorageFieldOrgId);
+  return localStorage.getItem(localStorageFieldOrgId) ?? 'unknown';
 }
 
 export function resetAllIds() {
