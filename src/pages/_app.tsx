@@ -31,8 +31,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <div className=''>
-        {/*<TopNav />*/}
-        {/*<Sidebar />*/}
         <div className=''>
           <main className=''>
             <Component {...pageProps} />
