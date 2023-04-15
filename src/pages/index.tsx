@@ -7,14 +7,16 @@ import {
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid';
 import { classNames } from '../utils/classes';
-import { FrigadeChecklist, FrigadeProgressBadge } from '@frigade/react';
+import {FrigadeChecklist, FrigadeForm, FrigadeProgressBadge} from '@frigade/react';
 import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
 
 const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
+const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
+const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
 
 const navigation = [
-  { name: 'Frigade Demo', href: '#', icon: SparklesIcon, current: true },
+  { name: '', href: '#', icon: StopIcon, current: false },
   { name: '', href: '#', icon: StopIcon, current: false },
   { name: '', href: '#', icon: StopIcon, current: false },
   { name: '', href: '#', icon: StopIcon, current: false },
@@ -43,6 +45,19 @@ const Home: NextPage = () => {
           content='https://frigade.com/img/frigademetaimage.png'
         />
       </Head>
+      <FrigadeForm
+          flowId={FORM_FLOW_ID}
+          type='large-modal'
+          appearance={{
+              styleOverrides: {
+                  'modalContainer': {
+                      'width': '1000px',
+                      'height': '600px',
+                  }
+              },
+          }}
+      />
+      );
       <div className=''>
         {/* Static sidebar for desktop */}
         <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
@@ -56,6 +71,13 @@ const Home: NextPage = () => {
               />
             </div>
             <nav className='flex flex-1 flex-col'>
+                <div className='w-full mb-8 mt-4'>
+                    <FrigadeProgressBadge
+                        title='Frigade Guided Demo'
+                        flowId={CHECKLIST_FLOW_ID}
+                        hideOnFlowCompletion
+                    />
+                </div>
               <ul role='list' className='flex flex-1 flex-col gap-y-7'>
                 <li>
                   <ul role='list' className='-mx-2 space-y-1'>
@@ -101,14 +123,14 @@ const Home: NextPage = () => {
                             team.current
                               ? 'bg-gray-50 text-gray-800'
                               : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50',
-                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold items-center'
+                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold items-center
                           )}
                         >
                           <span
                             className={classNames(
                               team.current
                                 ? 'text-gray-400 border-gray-400'
-                                : 'text-gray-400 border-gray-200 group-hover:border-gray-400 group-hover:text-gray-400',
+                                : 'text-gray-400 border-gray-300 group-hover:border-gray-300 group-hover:text-gray-400',
                               'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
                             )}
                           >
@@ -125,11 +147,11 @@ const Home: NextPage = () => {
               </ul>
               <div className=''>
                 <button
-                  className='bg-blue-100 border border-blue-700 rounded-lg flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
-                  onClick={() => {
-                    resetAllIds();
-                    window.location.reload();
-                  }}
+                    className='bg-blue-50 border border-blue-700 rounded-md flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
+                    onClick={() => {
+                      resetAllIds();
+                      window.location.reload();
+                    }}
                 >
                   Reset demo
                 </button>
@@ -139,7 +161,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className='lg:pl-72'>
-          <div className='sticky top-0 z-40 flex h-20 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 sm:gap-x-6 sm:px-6 lg:px-8'>
+          <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 sm:gap-x-6 sm:px-6 lg:px-8'>
             <button
               type='button'
               className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
@@ -174,17 +196,13 @@ const Home: NextPage = () => {
               </div>
               <div className='flex items-center gap-x-4 lg:gap-x-6'>
                 <div>
-                  <div className='max-w-[200px] mx-4'>
-                    <FrigadeProgressBadge
-                      title='Get started'
-                      flowId={CHECKLIST_FLOW_ID}
-                      hideOnFlowCompletion
-                    />
-                  </div>
                   <FrigadeChecklist
                     hideOnFlowCompletion
-                    type='modal'
                     flowId={CHECKLIST_FLOW_ID}
+                    type="withGuide"
+                    guideFlowId={CHECKLIST_GUIDE_FLOW_ID}
+                    title="Welcome to the Frigade Demo app"
+                    subtitle="Take a spin around the app and see a few examples of how Frigade can help you build better onboarding."
                   />
                 </div>
 
@@ -219,26 +237,38 @@ const Home: NextPage = () => {
           <main className='py-10'>
             {/*make a tailwind grid with 2 columns, the first one 2/3 and the second one 1/3*/}
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-8'>
-              <div className='lg:col-span-2 space-y-4'>
-                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                  <div className='px-4 py-5 sm:px-6 h-48'></div>
+                <div className='lg:col-span-2 space-y-4'>
+                    <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                        <div className='px-4 py-5 sm:px-6 h-48'>
+
+                        </div>
+                    </div>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                    <div className='px-4 py-5 sm:px-6 h-96'>
+
+                    </div>
+                  </div>
                 </div>
-                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                  <div className='px-4 py-5 sm:px-6 h-96'></div>
-                </div>
-              </div>
               <div className='lg:col-span-1 space-y-4'>
-                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                  <div className='px-4 py-5 sm:px-6 h-48'></div>
-                </div>
-                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                  <div className='px-4 py-5 sm:px-6 h-48'></div>
-                </div>
-                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                  <div className='px-4 py-5 sm:px-6 h-48'></div>
-                </div>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                      <div className='px-4 py-5 sm:px-6 h-48'>
+
+                      </div>
+                  </div>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                      <div className='px-4 py-5 sm:px-6 h-48'>
+
+                      </div>
+                  </div>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                      <div className='px-4 py-5 sm:px-6 h-48'>
+
+                      </div>
+                  </div>
               </div>
             </div>
+
+
           </main>
         </div>
       </div>
