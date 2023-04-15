@@ -8,7 +8,7 @@ export function getUserId(): string {
   if (!localStorage.getItem(localStorageFieldUserId)) {
     generateNewUserId();
   }
-  return localStorage.getItem(localStorageFieldUserId) ?? 'unknown'';
+  return localStorage.getItem(localStorageFieldUserId) ?? 'unknown';
 }
 
 export function getOrganizationId(): string {
