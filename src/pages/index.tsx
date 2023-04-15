@@ -1,12 +1,7 @@
 import type { NextPage } from 'next';
 import React, { useState } from 'react';
 import Head from 'next/head';
-import {
-  Bars3Icon,
-  Cog6ToothIcon,
-  SparklesIcon,
-  StopIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, SparklesIcon, StopIcon } from '@heroicons/react/24/outline';
 import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
@@ -106,7 +101,7 @@ const Home: NextPage = () => {
                             team.current
                               ? 'bg-gray-50 text-gray-800'
                               : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50',
-                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold items-center
+                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold items-center'
                           )}
                         >
                           <span
@@ -130,11 +125,11 @@ const Home: NextPage = () => {
               </ul>
               <div className=''>
                 <button
-                    className='bg-blue-100 border border-blue-700 rounded-lg flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
-                    onClick={() => {
-                      resetAllIds();
-                      window.location.reload();
-                    }}
+                  className='bg-blue-100 border border-blue-700 rounded-lg flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
+                  onClick={() => {
+                    resetAllIds();
+                    window.location.reload();
+                  }}
                 >
                   Reset demo
                 </button>
@@ -224,38 +219,26 @@ const Home: NextPage = () => {
           <main className='py-10'>
             {/*make a tailwind grid with 2 columns, the first one 2/3 and the second one 1/3*/}
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-8'>
-                <div className='lg:col-span-2 space-y-4'>
-                    <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                        <div className='px-4 py-5 sm:px-6 h-48'>
-
-                        </div>
-                    </div>
-                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                    <div className='px-4 py-5 sm:px-6 h-96'>
-
-                    </div>
-                  </div>
+              <div className='lg:col-span-2 space-y-4'>
+                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                  <div className='px-4 py-5 sm:px-6 h-48'></div>
                 </div>
+                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                  <div className='px-4 py-5 sm:px-6 h-96'></div>
+                </div>
+              </div>
               <div className='lg:col-span-1 space-y-4'>
-                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                      <div className='px-4 py-5 sm:px-6 h-48'>
-
-                      </div>
-                  </div>
-                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                      <div className='px-4 py-5 sm:px-6 h-48'>
-
-                      </div>
-                  </div>
-                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
-                      <div className='px-4 py-5 sm:px-6 h-48'>
-
-                      </div>
-                  </div>
+                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                  <div className='px-4 py-5 sm:px-6 h-48'></div>
+                </div>
+                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                  <div className='px-4 py-5 sm:px-6 h-48'></div>
+                </div>
+                <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                  <div className='px-4 py-5 sm:px-6 h-48'></div>
+                </div>
               </div>
             </div>
-
-
           </main>
         </div>
       </div>
