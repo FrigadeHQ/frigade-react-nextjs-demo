@@ -222,7 +222,40 @@ const Home: NextPage = () => {
           </div>
 
           <main className='py-10'>
-            <div className='px-4 sm:px-6 lg:px-8'>{/* Your content */}</div>
+            {/*make a tailwind grid with 2 columns, the first one 2/3 and the second one 1/3*/}
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-8'>
+                <div className='lg:col-span-2 space-y-4'>
+                    <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                        <div className='px-4 py-5 sm:px-6 h-48'>
+
+                        </div>
+                    </div>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                    <div className='px-4 py-5 sm:px-6 h-96'>
+
+                    </div>
+                  </div>
+                </div>
+              <div className='lg:col-span-1 space-y-4'>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                      <div className='px-4 py-5 sm:px-6 h-48'>
+
+                      </div>
+                  </div>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                      <div className='px-4 py-5 sm:px-6 h-48'>
+
+                      </div>
+                  </div>
+                  <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                      <div className='px-4 py-5 sm:px-6 h-48'>
+
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+
           </main>
         </div>
       </div>
