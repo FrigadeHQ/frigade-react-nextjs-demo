@@ -201,8 +201,8 @@ const Home: NextPage = () => {
                     flowId={CHECKLIST_FLOW_ID}
                     type="withGuide"
                     guideFlowId={CHECKLIST_GUIDE_FLOW_ID}
-                    title="Welcome to the Frigade Demo app"
-                    subtitle="Take a spin around the app and see a few examples of how Frigade can help you build better onboarding."
+                    title="Let's show you what's possible"
+                    subtitle="Build checklists like this – and other onboarding experiences – in less than an hour."
                   />
                 </div>
 
