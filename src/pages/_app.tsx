@@ -2,9 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { FrigadeProvider } from '@frigade/react';
 import React from 'react';
-import Sidebar from '../components/Sidebar';
 import { Toaster } from 'react-hot-toast';
-import TopNav from '../components/TopNav';
 import { getOrganizationId, getUserId } from '../utils/users';
 import { useRouter } from 'next/router';
 
@@ -32,11 +30,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         },
       }}
     >
-      <div className='min-h-full h-full flex flex-col'>
-        <TopNav />
-        <Sidebar />
-        <div className='flex flex-1 flex-col pl-64'>
-          <main className='flex-1 flex-col pb-8'>
+      <div className=''>
+        {/*<TopNav />*/}
+        {/*<Sidebar />*/}
+        <div className=''>
+          <main className=''>
             <Component {...pageProps} />
           </main>
         </div>
