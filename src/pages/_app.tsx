@@ -30,13 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         },
       }}
     >
-      <div className=''>
-        <div className=''>
-          <main className=''>
-            <Component {...pageProps} />
-          </main>
-        </div>
-      </div>
+      <main className='w-full h-screen'>
+        <Component {...pageProps} />
+      </main>
       <Toaster />
     </FrigadeProvider>
   );
