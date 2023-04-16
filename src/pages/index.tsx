@@ -14,6 +14,7 @@ import {
 } from '@frigade/react';
 import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
+import { useReward } from 'react-rewards';
 
 const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
 const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
@@ -39,7 +40,14 @@ const userNavigation = [
 
 const Home: NextPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const { reward, isAnimating } = useReward(`reward`, 'confetti', {
+    elementCount: 700,
+    spread: 800,
+    lifetime: 1000,
+    angle: 90,
+    zIndex: 9999,
+    colors: ['#336AF0', '#04071F', '#11204F', '#336AF0', '#04071F'],
+  });
   return (
     <>
       <Head>
@@ -49,6 +57,10 @@ const Home: NextPage = () => {
           content='https://frigade.com/img/frigademetaimage.png'
         />
       </Head>
+      <div
+        id='reward'
+        className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100]'
+      />
       <FrigadeForm
         flowId={FORM_FLOW_ID}
         type='large-modal'
@@ -59,6 +71,10 @@ const Home: NextPage = () => {
               height: '600px',
             },
           },
+        }}
+        hideOnFlowCompletion
+        onComplete={() => {
+          reward();
         }}
       />
       );
@@ -154,7 +170,6 @@ const Home: NextPage = () => {
                   className='bg-blue-50 border border-blue-700 rounded-md flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
                   onClick={() => {
                     resetAllIds();
-                    window.location.reload();
                   }}
                 >
                   Reset demo
@@ -163,7 +178,6 @@ const Home: NextPage = () => {
             </nav>
           </div>
         </div>
-
         <div className='lg:pl-72'>
           <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 sm:gap-x-6 sm:px-6 lg:px-8'>
             <button

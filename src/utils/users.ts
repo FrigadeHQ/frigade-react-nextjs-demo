@@ -23,6 +23,8 @@ export function getOrganizationId(): string {
 
 export function resetAllIds() {
   localStorage.clear();
+  // Refresh the page
+  window.location.reload();
 }
 
 function generateNewUserId() {
