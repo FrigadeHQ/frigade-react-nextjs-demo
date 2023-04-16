@@ -72,6 +72,7 @@ const Home: NextPage = () => {
             },
           },
         }}
+        dismissible={false}
         hideOnFlowCompletion
         onComplete={() => {
           reward();
