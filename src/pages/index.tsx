@@ -9,6 +9,7 @@ import {
 import { classNames } from '../utils/classes';
 import {
   FrigadeChecklist,
+  FrigadeEmbeddedTip,
   FrigadeForm,
   FrigadeProgressBadge,
 } from '@frigade/react';
@@ -19,6 +20,7 @@ import { useReward } from 'react-rewards';
 const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
 const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
 const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
+const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
 
 const navigation = [
   { name: '', href: '#', icon: StopIcon, current: false },
@@ -292,6 +294,24 @@ const Home: NextPage = () => {
                 {/*make a tailwind grid with 2 columns, the first one 2/3 and the second one 1/3*/}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-8'>
                   <div className='lg:col-span-2 space-y-4'>
+                    <FrigadeEmbeddedTip
+                      flowId={EMBEDDED_TIP_FLOW_ID}
+                      appearance={{
+                        styleOverrides: {
+                          embeddedTipContainer: {
+                            maxWidth: '100%',
+                            paddingBottom: '16px',
+                            paddingTop: '16px',
+                          },
+                          button: {
+                            marginBottom: '0px',
+                            width: '200px',
+                            backgroundColor: '#FFF',
+                            color: '#000',
+                          },
+                        },
+                      }}
+                    />
                     <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
                       <div className='px-4 py-5 sm:px-6 h-48'></div>
                     </div>
