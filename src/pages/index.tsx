@@ -12,6 +12,7 @@ import {
   FrigadeEmbeddedTip,
   FrigadeForm,
   FrigadeProgressBadge,
+  FrigadeTour,
 } from '@frigade/react';
 import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
@@ -21,6 +22,7 @@ const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
 const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
 const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
 const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
+const TOUR_FLOW_ID = 'flow_RAkvVt4kb61syA7g';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -84,6 +86,7 @@ const Home: NextPage = () => {
             id='reward'
             className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100]'
           />
+          <FrigadeTour flowId={TOUR_FLOW_ID} />
           <FrigadeForm
             flowId={FORM_FLOW_ID}
             type='large-modal'
@@ -101,7 +104,6 @@ const Home: NextPage = () => {
               reward();
             }}
           />
-          );
           <div className=''>
             {/* Static sidebar for desktop */}
             <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
