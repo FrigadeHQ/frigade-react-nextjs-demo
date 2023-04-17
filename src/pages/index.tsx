@@ -86,7 +86,7 @@ const Home: NextPage = () => {
             id='reward'
             className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100]'
           />
-          <FrigadeTour flowId={TOUR_FLOW_ID} />
+          <FrigadeTour tooltipPosition='auto' flowId={TOUR_FLOW_ID} />
           <FrigadeForm
             flowId={FORM_FLOW_ID}
             type='large-modal'
@@ -215,7 +215,10 @@ const Home: NextPage = () => {
                   className='h-6 w-px bg-gray-200 lg:hidden'
                   aria-hidden='true'
                 />
-
+                <span
+                  className='top-10 -ml-2 absolute'
+                  id='frigade-tooltip-navbar-tooltip'
+                />
                 <div className='flex flex-1 gap-x-4 self-stretch lg:gap-x-6'>
                   <div className='relative flex flex-1'>
                     <label htmlFor='search-field' className='sr-only'>
@@ -253,6 +256,10 @@ const Home: NextPage = () => {
 
                     {/* Profile dropdown */}
                     <div className='-m-1.5 flex items-center p-1.5'>
+                      <span
+                        className='-ml-4 absolute'
+                        id='frigade-tooltip-top-navbar-tooltip'
+                      />
                       <span className='sr-only'>Open user menu</span>
                       <div className='h-8 w-8 rounded-full bg-gray-200' />
                       <span className='hidden lg:flex lg:items-center'>
