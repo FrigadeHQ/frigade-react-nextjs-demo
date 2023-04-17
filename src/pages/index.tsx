@@ -93,6 +93,7 @@ const Home: NextPage = () => {
             showHighlightOnly
             showStepCount={false}
             dismissible={true}
+            dismissBehavior='complete-step'
           />
           <FrigadeForm
             flowId={FORM_FLOW_ID}
@@ -124,13 +125,12 @@ const Home: NextPage = () => {
                   />
                 </div>
                 <nav className='flex flex-1 flex-col'>
-                  <div className='w-full mb-8 mt-4'>
-                    <FrigadeProgressBadge
-                      title='Frigade Guided Demo'
-                      flowId={CHECKLIST_FLOW_ID}
-                      hideOnFlowCompletion
-                    />
-                  </div>
+                  <FrigadeProgressBadge
+                    title='Frigade Guided Demo'
+                    flowId={CHECKLIST_FLOW_ID}
+                    hideOnFlowCompletion
+                    className='w-full mb-8 mt-4'
+                  />
                   <ul role='list' className='flex flex-1 flex-col gap-y-7'>
                     <li>
                       <ul role='list' className='-mx-2 space-y-1'>
@@ -294,7 +294,7 @@ const Home: NextPage = () => {
                             paddingBottom: '16px',
                             paddingTop: '16px',
                           },
-                          button: {
+                          embeddedTipButton: {
                             marginBottom: '0px',
                             width: '200px',
                             backgroundColor: '#FFF',
