@@ -86,7 +86,13 @@ const Home: NextPage = () => {
             id='reward'
             className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100]'
           />
-          <FrigadeTour tooltipPosition='auto' flowId={TOUR_FLOW_ID} />
+          <FrigadeTour
+            tooltipPosition='auto'
+            flowId={TOUR_FLOW_ID}
+            showTooltipsSimultaneously
+            showHighlightOnly
+            showStepCount={false}
+          />
           <FrigadeForm
             flowId={FORM_FLOW_ID}
             type='large-modal'
