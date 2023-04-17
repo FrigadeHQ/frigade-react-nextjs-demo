@@ -92,6 +92,7 @@ const Home: NextPage = () => {
             showTooltipsSimultaneously
             showHighlightOnly
             showStepCount={false}
+            dismissible={true}
           />
           <FrigadeForm
             flowId={FORM_FLOW_ID}
@@ -112,7 +113,7 @@ const Home: NextPage = () => {
           />
           <div className=''>
             {/* Static sidebar for desktop */}
-            <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
+            <div className='hidden z-[105] lg:fixed lg:inset-y-0 lg:z-[105] lg:flex lg:w-72 lg:flex-col'>
               {/* Sidebar component, swap this element with another sidebar if you like */}
               <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4'>
                 <div className='flex h-16 shrink-0 items-center'>
@@ -158,6 +159,7 @@ const Home: NextPage = () => {
                       </ul>
                     </li>
                     <li>
+                      <span className='frigade-sidebar-tooltip'></span>
                       <div className='text-xs font-semibold leading-6 text-gray-400'>
                         Your teams
                       </div>
@@ -206,7 +208,7 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className='lg:pl-72'>
-              <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 sm:gap-x-6 sm:px-6 lg:px-8'>
+              <div className='sticky top-0 z-[105] flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 sm:gap-x-6 sm:px-6 lg:px-8'>
                 <button
                   type='button'
                   className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
@@ -220,10 +222,6 @@ const Home: NextPage = () => {
                 <div
                   className='h-6 w-px bg-gray-200 lg:hidden'
                   aria-hidden='true'
-                />
-                <span
-                  className='top-10 -ml-2 absolute'
-                  id='frigade-tooltip-navbar-tooltip'
                 />
                 <div className='flex flex-1 gap-x-4 self-stretch lg:gap-x-6'>
                   <div className='relative flex flex-1'>
@@ -262,10 +260,7 @@ const Home: NextPage = () => {
 
                     {/* Profile dropdown */}
                     <div className='-m-1.5 flex items-center p-1.5'>
-                      <span
-                        className='-ml-4 absolute'
-                        id='frigade-tooltip-top-navbar-tooltip'
-                      />
+                      <span className='-ml-4 frigade-profile-tooltip' />
                       <span className='sr-only'>Open user menu</span>
                       <div className='h-8 w-8 rounded-full bg-gray-200' />
                       <span className='hidden lg:flex lg:items-center'>
@@ -311,11 +306,17 @@ const Home: NextPage = () => {
                     <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
                       <div className='px-4 py-5 sm:px-6 h-48'></div>
                     </div>
-                    <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
+                    <div
+                      id=''
+                      className='border border-gray-200 overflow-hidden sm:rounded-lg'
+                    >
                       <div className='px-4 py-5 sm:px-6 h-96'></div>
                     </div>
                   </div>
-                  <div className='lg:col-span-1 space-y-4'>
+                  <div
+                    id='frigade-on-page-tooltip'
+                    className='lg:col-span-1 space-y-4'
+                  >
                     <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
                       <div className='px-4 py-5 sm:px-6 h-48'></div>
                     </div>
