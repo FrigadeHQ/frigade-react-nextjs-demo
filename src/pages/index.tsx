@@ -22,22 +22,10 @@ const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
 const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
 const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
 
-const navigation = [
-  { name: '', href: '#', icon: StopIcon, current: false },
-  { name: '', href: '#', icon: StopIcon, current: false },
-  { name: '', href: '#', icon: StopIcon, current: false },
-  { name: '', href: '#', icon: StopIcon, current: false },
-  { name: '', href: '#', icon: StopIcon, current: false },
-  { name: '', href: '#', icon: StopIcon, current: false },
-];
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
   { id: 2, name: '', href: '#', initial: 'B', current: false },
   { id: 3, name: '', href: '#', initial: 'C', current: false },
-];
-const userNavigation = [
-  { name: 'Your profile', href: '#' },
-  { name: 'Sign out', href: '#' },
 ];
 
 const Home: NextPage = () => {
@@ -137,31 +125,24 @@ const Home: NextPage = () => {
                   <ul role='list' className='flex flex-1 flex-col gap-y-7'>
                     <li>
                       <ul role='list' className='-mx-2 space-y-1'>
-                        {navigation.map((item) => (
-                          <li key={item.name}>
+                        {Array.from(Array(6).keys()).map((id) => (
+                          <li key={id}>
                             <a
-                              href={item.href}
+                              href='#'
                               className={classNames(
-                                item.current
-                                  ? 'bg-gray-50 text-gray-600'
-                                  : 'text-gray-600 hover:text-gray-600 hover:bg-gray-50',
+                                'text-gray-600 hover:text-gray-600 hover:bg-gray-50',
                                 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium items-center'
                               )}
                             >
-                              <item.icon
+                              <StopIcon
                                 className={classNames(
-                                  item.current
-                                    ? 'text-gray-500'
-                                    : 'text-gray-200',
+                                  'text-gray-200',
                                   'h-6 w-6 shrink-0'
                                 )}
                                 aria-hidden='true'
                               />
-                              {item.current ? item.name : ''}
                               <Placeholder
-                                className={classNames(
-                                  item.current ? '' : 'bg-gray-200 h-2 w-20'
-                                )}
+                                className={classNames('bg-gray-200 h-2 w-20')}
                               />
                             </a>
                           </li>
@@ -174,7 +155,7 @@ const Home: NextPage = () => {
                       </div>
                       <ul role='list' className='-mx-2 mt-2 space-y-1'>
                         {teams.map((team) => (
-                          <li key={team.name}>
+                          <li key={team.id}>
                             <a
                               href={team.href}
                               className={classNames(

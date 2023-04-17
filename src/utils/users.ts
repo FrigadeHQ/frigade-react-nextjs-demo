@@ -5,6 +5,7 @@ export function getUserId(): string {
   if (typeof window === 'undefined' || !window.localStorage) {
     return 'unknown';
   }
+
   if (!localStorage.getItem(localStorageFieldUserId)) {
     generateNewUserId();
   }
@@ -32,7 +33,7 @@ function generateNewUserId() {
 }
 
 function generateNewOrganizationId() {
-  localStorage.setItem(localStorageFieldUserId, getRandomString());
+  localStorage.setItem(localStorageFieldOrgId, getRandomString());
 }
 
 function getRandomString() {
