@@ -254,8 +254,6 @@ const Home: NextPage = () => {
                         flowId={CHECKLIST_FLOW_ID}
                         type='withGuide'
                         guideFlowId={CHECKLIST_GUIDE_FLOW_ID}
-                        title="Let's show you what's possible"
-                        subtitle='Build checklists like this – and other onboarding experiences – in less than an hour.'
                         onButtonClick={(step: StepData) => {
                           if (step.id === EMBEDDED_TIPS_STEP_ID) {
                             setShowEmbeddedTips(true);
