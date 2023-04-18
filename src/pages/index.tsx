@@ -223,15 +223,22 @@ const Home: NextPage = () => {
                       </ul>
                     </li>
                   </ul>
-                  <div className=''>
+                  <div className='flex'>
                     <button
-                      className='bg-blue-50 border border-blue-700 rounded-md flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
+                      className='bg-white border border-blue-700 rounded-md flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
                       onClick={() => {
                         resetAllIds();
                       }}
                     >
                       Reset demo
                     </button>
+                    <a
+                      className='bg-blue-50 border border-blue-700 rounded-md flex items-center justify-center h-8 w-24 text-blue-900 text-xs ml-2'
+                      href='https://frigade.com'
+                      target='_blank'
+                    >
+                      Get access
+                    </a>
                   </div>
                 </nav>
               </div>
