@@ -14,6 +14,7 @@ import {
   FrigadeProgressBadge,
   FrigadeTour,
   StepData,
+  useFlowOpens,
 } from '@frigade/react';
 import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
@@ -50,6 +51,7 @@ const Home: NextPage = () => {
     position: 'fixed',
     colors: ['#336AF0', '#04071F', '#11204F', '#336AF0', '#04071F'],
   });
+  const { getOpenFlowState, setOpenFlowState } = useFlowOpens();
 
   const [width, setWidth] = useState<number>(1024);
 
@@ -130,6 +132,9 @@ const Home: NextPage = () => {
             hideOnFlowCompletion
             onComplete={() => {
               reward();
+              setTimeout(() => {
+                setOpenFlowState(CHECKLIST_FLOW_ID, true);
+              }, 1000);
             }}
           />
           <div className=''>
