@@ -42,7 +42,8 @@ const Home: NextPage = () => {
     spread: 800,
     lifetime: 1000,
     angle: 90,
-    zIndex: 9999,
+    zIndex: 2500,
+    position: 'fixed',
     colors: ['#336AF0', '#04071F', '#11204F', '#336AF0', '#04071F'],
   });
 
@@ -89,7 +90,7 @@ const Home: NextPage = () => {
         <>
           <div
             id='reward'
-            className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100]'
+            className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[2500]'
           />
           {startTour && (
             <FrigadeTour
