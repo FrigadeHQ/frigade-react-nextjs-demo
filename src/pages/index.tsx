@@ -259,8 +259,8 @@ const Home: NextPage = () => {
                     />
 
                     {/* Profile dropdown */}
+                    <span className='relative -mr-4 mt-3 frigade-profile-tooltip' />
                     <div className='-m-1.5 flex items-center p-1.5'>
-                      <span className='-ml-4 frigade-profile-tooltip' />
                       <span className='sr-only'>Open user menu</span>
                       <div className='h-8 w-8 rounded-full bg-gray-200' />
                       <span className='hidden lg:flex lg:items-center'>

@@ -151,12 +151,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@frigade/react@^1.30.20":
-  version "1.30.20"
-  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.30.20.tgz#0819dd26a568a53524747f2b35b9377491ed9d7c"
-  integrity sha512-IROkGzoScFOZAim0rDEmZP52fZupHYrewCV1LaksWUw4GUwYIsU6sUULqqspm3kZD+T1B7cZSvDLHnH/ciK64A==
+"@frigade/react@^1.30.21":
+  version "1.30.21"
+  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.30.21.tgz#a8e2f284a522bf271faf122eb1f571f4575231a0"
+  integrity sha512-djXkGuoxLsRFElbsvpFkIwAoTpP+f/iNdfkqn71cUCX7zYjCDvtV9jlkro95kIrO7Rv8pmzWeFL/yznDQV6/fw==
   dependencies:
-    "@reactour/utils" "^0.4.7"
     dompurify "^3.0.1"
     framer-motion "6.5.0"
     react-dom "17.0.2"
@@ -352,19 +351,6 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
-
-"@reactour/utils@^0.4.7":
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/@reactour/utils/-/utils-0.4.7.tgz#569a43fa4e25f50ceb52272bff7696c14837945a"
-  integrity sha512-d+/Xhi2nKCc6OrDEFGg15iN8ZyWDTdOrwIKkndJXrnWiN6b+nqoS2Tb7hZvt79rqCyUsQxekUndPFPQyIW81EA==
-  dependencies:
-    "@rooks/use-mutation-observer" "^4.11.2"
-    resize-observer-polyfill "^1.5.1"
-
-"@rooks/use-mutation-observer@^4.11.2":
-  version "4.11.2"
-  resolved "https://registry.yarnpkg.com/@rooks/use-mutation-observer/-/use-mutation-observer-4.11.2.tgz#a0466c4338e0a4487ea19253c86bcd427c29f4af"
-  integrity sha512-vpsdrZdr6TkB1zZJcHx+fR1YC/pHs2BaqcuYiEGjBVbwY5xcC49+h0hAUtQKHth3oJqXfIX/Ng8S7s5HFHdM/A==
 
 "@swc/helpers@0.4.14":
   version "0.4.14"
@@ -1105,11 +1091,6 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
-
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve@^1.1.7, resolve@^1.22.1:
   version "1.22.1"
