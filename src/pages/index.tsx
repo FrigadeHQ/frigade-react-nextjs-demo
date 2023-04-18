@@ -15,6 +15,7 @@ import {
   FrigadeTour,
   StepData,
   useFlowOpens,
+  useFlows,
 } from '@frigade/react';
 import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
@@ -51,7 +52,8 @@ const Home: NextPage = () => {
     position: 'fixed',
     colors: ['#336AF0', '#04071F', '#11204F', '#336AF0', '#04071F'],
   });
-  const { getOpenFlowState, setOpenFlowState } = useFlowOpens();
+  const { setOpenFlowState } = useFlowOpens();
+  const { getFlowStatus } = useFlows();
 
   const [width, setWidth] = useState<number>(1024);
 
@@ -109,7 +111,9 @@ const Home: NextPage = () => {
               dismissBehavior='complete-step'
             />
           )}
-          <FrigadeForm type='modal' flowId={DEMO_COMPLETE_FLOW_ID} />
+          {getFlowStatus(ANNOUNCEMENT_FLOW_ID) === 'COMPLETED_FLOW' && (
+            <FrigadeForm type='modal' flowId={DEMO_COMPLETE_FLOW_ID} />
+          )}
           {showAnnouncement && (
             <FrigadeForm
               type='modal'
