@@ -151,10 +151,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@frigade/react@^1.30.25":
-  version "1.30.25"
-  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.30.25.tgz#7f960af3d17bcf19b36b0533cd6f1c81b439cf81"
-  integrity sha512-0O+kvHMkRCFe7FxsalHTGsDd++PgcBqDgjqAojh7BT10pzJ07ZTRIicQktx3t+f+i/PPa/oftusNDHCUctSHdA==
+"@frigade/react@^1.30.26":
+  version "1.30.26"
+  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.30.26.tgz#04ab2c9017b4d34cff0033ba11ab2126d515e7e3"
+  integrity sha512-dmBNA7TF9sLFxHkt0y3yo/WNyEeS1syHGIwVKOqdzrN0YUf9e/WWG+7lGmLVAeLlaqChPsX+PZvh9BtiZpCOtg==
   dependencies:
     dompurify "^3.0.1"
     framer-motion "6.5.0"
