@@ -284,7 +284,6 @@ const Home: NextPage = () => {
                         hideOnFlowCompletion
                         flowId={CHECKLIST_FLOW_ID}
                         type='withGuide'
-                        guideFlowId={CHECKLIST_GUIDE_FLOW_ID}
                         onButtonClick={(step: StepData) => {
                           if (step.id === EMBEDDED_TIPS_STEP_ID) {
                             setShowEmbeddedTips(true);
