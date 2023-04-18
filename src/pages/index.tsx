@@ -147,11 +147,13 @@ const Home: NextPage = () => {
               {/* Sidebar component, swap this element with another sidebar if you like */}
               <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4'>
                 <div className='flex h-16 shrink-0 items-center'>
-                  <img
-                    className='h-6 w-auto'
-                    src='https://frigade.com/img/frigsadelogo.svg'
-                    alt='Frigade'
-                  />
+                  <a href='https://frigade.com' target='_blank'>
+                    <img
+                      className='h-6 w-auto'
+                      src='https://frigade.com/img/frigsadelogo.svg'
+                      alt='https://frigade.com'
+                    />
+                  </a>
                 </div>
                 <nav className='flex flex-1 flex-col'>
                   <FrigadeProgressBadge
@@ -184,7 +186,7 @@ const Home: NextPage = () => {
                               />
                             </a>
                           </li>
-                        ))}
+                        ))}{' '}
                       </ul>
                     </li>
                     <li>
