@@ -15,7 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       userId={getUserId()}
       organizationId={getOrganizationId()}
       config={{
-        navigate: async (url: string) => {
+        navigate: async (url: string, target: string) => {
+          if (target === '_blank') {
+            window.open(url, '_blank');
+            return;
+          }
           // Use Next.js router to navigate url changes triggered by Frigade
           await router.push(url);
         },

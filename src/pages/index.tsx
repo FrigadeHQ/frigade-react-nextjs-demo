@@ -24,7 +24,8 @@ const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
 const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
 const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
 const TOUR_FLOW_ID = 'flow_RAkvVt4kb61syA7g';
-const START_TOUR_STEP_ID = 'embeddedTips';
+const EMBEDDED_TIPS_STEP_ID = 'embeddedTips';
+const PRODUCT_HINTS_STEP_ID = 'productHints';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -35,6 +36,7 @@ const teams = [
 const Home: NextPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [startTour, setStartTour] = useState(false);
+  const [showEmbeddedTips, setShowEmbeddedTips] = useState(false);
   const { reward, isAnimating } = useReward(`reward`, 'confetti', {
     elementCount: 700,
     spread: 800,
@@ -255,7 +257,10 @@ const Home: NextPage = () => {
                         title="Let's show you what's possible"
                         subtitle='Build checklists like this – and other onboarding experiences – in less than an hour.'
                         onButtonClick={(step: StepData) => {
-                          if (step.id === START_TOUR_STEP_ID) {
+                          if (step.id === EMBEDDED_TIPS_STEP_ID) {
+                            setShowEmbeddedTips(true);
+                          }
+                          if (step.id === PRODUCT_HINTS_STEP_ID) {
                             setStartTour(true);
                           }
                           return true;
@@ -296,24 +301,26 @@ const Home: NextPage = () => {
                 {/*make a tailwind grid with 2 columns, the first one 2/3 and the second one 1/3*/}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-8'>
                   <div className='lg:col-span-2 space-y-4'>
-                    <FrigadeEmbeddedTip
-                      flowId={EMBEDDED_TIP_FLOW_ID}
-                      appearance={{
-                        styleOverrides: {
-                          embeddedTipContainer: {
-                            maxWidth: '100%',
-                            paddingBottom: '16px',
-                            paddingTop: '16px',
+                    {showEmbeddedTips && (
+                      <FrigadeEmbeddedTip
+                        flowId={EMBEDDED_TIP_FLOW_ID}
+                        appearance={{
+                          styleOverrides: {
+                            embeddedTipContainer: {
+                              maxWidth: '100%',
+                              paddingBottom: '16px',
+                              paddingTop: '16px',
+                            },
+                            embeddedTipButton: {
+                              marginBottom: '0px',
+                              width: '200px',
+                              backgroundColor: '#FFF',
+                              color: '#000',
+                            },
                           },
-                          embeddedTipButton: {
-                            marginBottom: '0px',
-                            width: '200px',
-                            backgroundColor: '#FFF',
-                            color: '#000',
-                          },
-                        },
-                      }}
-                    />
+                        }}
+                      />
+                    )}
                     <div className='border border-gray-200 overflow-hidden sm:rounded-lg'>
                       <div className='px-4 py-5 sm:px-6 h-48'></div>
                     </div>
