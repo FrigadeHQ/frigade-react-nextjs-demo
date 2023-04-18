@@ -13,6 +13,7 @@ import {
   FrigadeForm,
   FrigadeProgressBadge,
   FrigadeTour,
+  StepData,
 } from '@frigade/react';
 import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
@@ -23,6 +24,7 @@ const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
 const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
 const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
 const TOUR_FLOW_ID = 'flow_RAkvVt4kb61syA7g';
+const START_TOUR_STEP_ID = 'embeddedTips';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -32,6 +34,7 @@ const teams = [
 
 const Home: NextPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [startTour, setStartTour] = useState(false);
   const { reward, isAnimating } = useReward(`reward`, 'confetti', {
     elementCount: 700,
     spread: 800,
@@ -86,15 +89,17 @@ const Home: NextPage = () => {
             id='reward'
             className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100]'
           />
-          <FrigadeTour
-            tooltipPosition='auto'
-            flowId={TOUR_FLOW_ID}
-            showTooltipsSimultaneously
-            showHighlightOnly
-            showStepCount={false}
-            dismissible={true}
-            dismissBehavior='complete-step'
-          />
+          {startTour && (
+            <FrigadeTour
+              tooltipPosition='auto'
+              flowId={TOUR_FLOW_ID}
+              showTooltipsSimultaneously
+              showHighlightOnly
+              showStepCount={false}
+              dismissible={true}
+              dismissBehavior='complete-step'
+            />
+          )}
           <FrigadeForm
             flowId={FORM_FLOW_ID}
             type='large-modal'
@@ -249,6 +254,12 @@ const Home: NextPage = () => {
                         guideFlowId={CHECKLIST_GUIDE_FLOW_ID}
                         title="Let's show you what's possible"
                         subtitle='Build checklists like this – and other onboarding experiences – in less than an hour.'
+                        onButtonClick={(step: StepData) => {
+                          if (step.id === START_TOUR_STEP_ID) {
+                            setStartTour(true);
+                          }
+                          return true;
+                        }}
                       />
                     </div>
 
