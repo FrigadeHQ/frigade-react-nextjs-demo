@@ -20,6 +20,7 @@ import {
 import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
 import { useReward } from 'react-rewards';
+import Script from 'next/script';
 
 const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
 const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
@@ -39,21 +40,19 @@ const teams = [
 ];
 
 const Home: NextPage = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [startTour, setStartTour] = useState(false);
   const [showEmbeddedTips, setShowEmbeddedTips] = useState(false);
-  const [showAnnouncement, setShowAnnouncement] = useState(false);
   const { reward, isAnimating } = useReward(`reward`, 'confetti', {
-    elementCount: 700,
+    elementCount: 600,
     spread: 800,
-    lifetime: 1000,
+    lifetime: 800,
     angle: 90,
     zIndex: 2500,
     position: 'fixed',
     colors: ['#336AF0', '#04071F', '#11204F', '#336AF0', '#04071F'],
   });
   const { setOpenFlowState } = useFlowOpens();
-  const { getFlowStatus } = useFlows();
+  const { getFlowStatus, getStepStatus } = useFlows();
 
   const [width, setWidth] = useState<number>(1024);
 
@@ -83,6 +82,10 @@ const Home: NextPage = () => {
           content='https://frigade.com/img/frigademetaimage.png'
         />
       </Head>
+      <Script>
+        {`!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_V9yoG0UsQv5NJo5d1kXlgSoftbP9wfVbj7cUIKCzgZ',{api_host:'https://api2.frigade.com'})`}
+      </Script>
       {isMobile && (
         <div className='w-full h-full flex justify-center items-center align-middle px-8'>
           <div>
@@ -112,13 +115,19 @@ const Home: NextPage = () => {
             />
           )}
           {getFlowStatus(ANNOUNCEMENT_FLOW_ID) === 'COMPLETED_FLOW' && (
-            <FrigadeForm type='modal' flowId={DEMO_COMPLETE_FLOW_ID} />
+            <FrigadeForm
+              type='modal'
+              flowId={DEMO_COMPLETE_FLOW_ID}
+              endFlowOnDismiss
+            />
           )}
-          {showAnnouncement && (
+          {getStepStatus(CHECKLIST_FLOW_ID, PRODUCT_ANNOUNCEMENT_STEP_ID) ===
+            'COMPLETED_STEP' && (
             <FrigadeForm
               type='modal'
               modalPosition='bottom-right'
               flowId={ANNOUNCEMENT_FLOW_ID}
+              endFlowOnDismiss
             />
           )}
           <FrigadeForm
@@ -138,7 +147,7 @@ const Home: NextPage = () => {
               reward();
               setTimeout(() => {
                 setOpenFlowState(CHECKLIST_FLOW_ID, true);
-              }, 1000);
+              }, 700);
             }}
           />
           <div className=''>
@@ -227,7 +236,7 @@ const Home: NextPage = () => {
                   </ul>
                   <div className='flex'>
                     <button
-                      className='bg-white border border-blue-700 rounded-md flex items-center justify-center h-8 w-24 text-blue-900 text-xs'
+                      className='bg-white px-2 whitespace-nowrap w-auto border border-blue-700 rounded-md flex items-center justify-center h-8  text-blue-900 text-xs'
                       onClick={() => {
                         resetAllIds();
                       }}
@@ -235,7 +244,14 @@ const Home: NextPage = () => {
                       Reset demo
                     </button>
                     <a
-                      className='bg-blue-50 border border-blue-700 rounded-md flex items-center justify-center h-8 w-24 text-blue-900 text-xs ml-2'
+                      className='bg-white px-2 whitespace-nowrap w-auto border border-blue-700 rounded-md flex items-center justify-center h-8 ml-2  text-blue-900 text-xs'
+                      href='https://github.com/FrigadeHQ/frigade-react-nextjs-demo'
+                      target='_blank'
+                    >
+                      Source
+                    </a>
+                    <a
+                      className='bg-blue-50 px-2  whitespace-nowrap text-center w-auto border border-blue-700 rounded-md flex items-center justify-center h-8 text-blue-900 text-xs ml-2'
                       href='https://frigade.com'
                       target='_blank'
                     >
@@ -250,7 +266,6 @@ const Home: NextPage = () => {
                 <button
                   type='button'
                   className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
-                  onClick={() => setSidebarOpen(true)}
                 >
                   <span className='sr-only'>Open sidebar</span>
                   <Bars3Icon className='h-6 w-6' aria-hidden='true' />
@@ -290,9 +305,6 @@ const Home: NextPage = () => {
                           }
                           if (step.id === PRODUCT_HINTS_STEP_ID) {
                             setStartTour(true);
-                          }
-                          if (step.id === PRODUCT_ANNOUNCEMENT_STEP_ID) {
-                            setShowAnnouncement(true);
                           }
                           return true;
                         }}
