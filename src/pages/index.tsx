@@ -114,7 +114,7 @@ const Home: NextPage = () => {
               dismissible={true}
               dismissBehavior='complete-step'
               onComplete={() => {
-                toast.success('Tour completed!');
+                toast.success('Product hints completed!');
               }}
             />
           )}

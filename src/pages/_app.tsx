@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <main className='w-full h-screen'>
         <Component {...pageProps} />
       </main>
-      <Toaster />
+      <Toaster position='top-right' />
     </FrigadeProvider>
   );
 }
