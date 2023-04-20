@@ -21,6 +21,7 @@ import { resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
 import { useReward } from 'react-rewards';
 import Script from 'next/script';
+import toast from 'react-hot-toast';
 
 const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
 const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
@@ -43,7 +44,7 @@ const Home: NextPage = () => {
   const [startTour, setStartTour] = useState(false);
   const [showEmbeddedTips, setShowEmbeddedTips] = useState(false);
   const { reward, isAnimating } = useReward(`reward`, 'confetti', {
-    elementCount: 600,
+    elementCount: 200,
     spread: 800,
     lifetime: 800,
     angle: 90,
@@ -112,6 +113,9 @@ const Home: NextPage = () => {
               showStepCount={false}
               dismissible={true}
               dismissBehavior='complete-step'
+              onComplete={() => {
+                toast.success('Tour completed!');
+              }}
             />
           )}
           {getFlowStatus(ANNOUNCEMENT_FLOW_ID) === 'COMPLETED_FLOW' && (
@@ -298,7 +302,8 @@ const Home: NextPage = () => {
                       <FrigadeChecklist
                         hideOnFlowCompletion
                         flowId={CHECKLIST_FLOW_ID}
-                        type='withGuide'
+                        type='modal'
+                        checklistStyle='with-guide'
                         onButtonClick={(step: StepData) => {
                           if (step.id === EMBEDDED_TIPS_STEP_ID) {
                             setShowEmbeddedTips(true);
