@@ -5,6 +5,7 @@ import React from 'react';
 import { Toaster } from 'react-hot-toast';
 import { getOrganizationId, getUserId } from '../utils/users';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -42,4 +43,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default dynamic(() => Promise.resolve(MyApp), {
+  ssr: false,
+});

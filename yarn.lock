@@ -151,10 +151,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@frigade/react@^1.31.2":
-  version "1.31.2"
-  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.31.2.tgz#4b698de90a68a333bd2df76199eb244c36b547b2"
-  integrity sha512-dt+E8AbgV8owgc64XhoOHIKV+4mqLB6w/VQWMAI20M4vErE5Kd6QFTwCC/G1rYVoHsf++LsW0KN5zdjbzRyboQ==
+"@frigade/react@^1.31.6":
+  version "1.31.6"
+  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.31.6.tgz#46e41f8acdd27e835297f61c7fc10d1c2fab5719"
+  integrity sha512-Y73k3Ph99FN8q2JnKujKEWEyam5GhRasPJattG/AGBcnt2GTUY02ESNi2fud3TNz/JQ+dzHT2+l13P0lNmYBxg==
   dependencies:
     dompurify "^3.0.1"
     framer-motion "6.5.0"
@@ -1254,6 +1254,11 @@ typescript@4.9.4:
   version "4.9.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
   integrity sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==
+
+unique-names-generator@^4.7.1:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/unique-names-generator/-/unique-names-generator-4.7.1.tgz#966407b12ba97f618928f77322cfac8c80df5597"
+  integrity sha512-lMx9dX+KRmG8sq6gulYYpKWZc9RlGsgBR6aoO8Qsm3qvkSJ+3rAymr+TnV8EDMrIrwuFJ4kruzMWM/OpYzPoow==
 
 update-browserslist-db@^1.0.10:
   version "1.0.10"

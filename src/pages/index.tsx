@@ -17,7 +17,7 @@ import {
   useFlowOpens,
   useFlows,
 } from '@frigade/react';
-import { resetAllIds } from '../utils/users';
+import { getUserId, resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
 import { useReward } from 'react-rewards';
 import Script from 'next/script';
@@ -238,6 +238,10 @@ const Home: NextPage = () => {
                       </ul>
                     </li>
                   </ul>
+                  <div className='flex text-xs my-4 text-gray-300'>
+                    Username:&nbsp;
+                    <span className='font-semibold'>{getUserId()}</span>
+                  </div>
                   <div className='flex'>
                     <button
                       className='bg-white px-2 whitespace-nowrap w-auto border border-blue-700 rounded-md flex items-center justify-center h-8  text-blue-900 text-xs'

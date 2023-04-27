@@ -1,3 +1,16 @@
+import {
+  adjectives,
+  animals,
+  colors,
+  uniqueNamesGenerator,
+} from 'unique-names-generator';
+
+const lowerCaseName: string = uniqueNamesGenerator({
+  dictionaries: [colors, adjectives, animals],
+  style: 'lowerCase',
+  separator: '-',
+});
+
 const localStorageFieldUserId = 'frigadeUserId';
 const localStorageFieldOrgId = 'frigadeOrgId';
 
@@ -33,12 +46,9 @@ function generateNewUserId() {
 }
 
 function generateNewOrganizationId() {
-  localStorage.setItem(localStorageFieldOrgId, getRandomString());
+  localStorage.setItem(localStorageFieldOrgId, `${getRandomString()}'s org`);
 }
 
 function getRandomString() {
-  return (
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15)
-  );
+  return lowerCaseName;
 }
