@@ -16,6 +16,7 @@ import {
   StepData,
   useFlowOpens,
   useFlows,
+  useUser,
 } from '@frigade/react';
 import { getUserId, resetAllIds } from '../utils/users';
 import Placeholder from '../components/Placeholder';
@@ -24,15 +25,14 @@ import Script from 'next/script';
 import toast from 'react-hot-toast';
 
 const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
-const CHECKLIST_GUIDE_FLOW_ID = 'flow_I17JP3IJkyQgKnjh';
 const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
 const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
 const TOUR_FLOW_ID = 'flow_RAkvVt4kb61syA7g';
-const EMBEDDED_TIPS_STEP_ID = 'embeddedTips';
-const PRODUCT_HINTS_STEP_ID = 'productHints';
 const PRODUCT_ANNOUNCEMENT_STEP_ID = 'announcements';
 const DEMO_COMPLETE_FLOW_ID = 'flow_qUIhb7Ymm5jFDDYu';
 const ANNOUNCEMENT_FLOW_ID = 'flow_1hOrTHbUdcf64Jd0';
+const PRODUCT_HINTS_STEP_ID = 'productHints';
+const EMBEDDED_TIP_STEP_ID = 'embeddedTips';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -41,8 +41,6 @@ const teams = [
 ];
 
 const Home: NextPage = () => {
-  const [startTour, setStartTour] = useState(false);
-  const [showEmbeddedTips, setShowEmbeddedTips] = useState(false);
   const { reward, isAnimating } = useReward(`reward`, 'confetti', {
     elementCount: 200,
     spread: 800,
@@ -54,6 +52,7 @@ const Home: NextPage = () => {
   });
   const { setOpenFlowState } = useFlowOpens();
   const { getFlowStatus, getStepStatus } = useFlows();
+  const { addPropertiesToUser } = useUser();
 
   const [width, setWidth] = useState<number>(1024);
 
@@ -104,20 +103,18 @@ const Home: NextPage = () => {
             id='reward'
             className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[2500]'
           />
-          {startTour && (
-            <FrigadeTour
-              tooltipPosition='auto'
-              flowId={TOUR_FLOW_ID}
-              showTooltipsSimultaneously
-              showHighlightOnly
-              showStepCount={false}
-              dismissible={true}
-              dismissBehavior='complete-step'
-              onComplete={() => {
-                toast.success('Product hints completed!');
-              }}
-            />
-          )}
+          <FrigadeTour
+            tooltipPosition='auto'
+            flowId={TOUR_FLOW_ID}
+            showTooltipsSimultaneously
+            showHighlightOnly
+            showStepCount={false}
+            dismissible={true}
+            dismissBehavior='complete-step'
+            onComplete={() => {
+              toast.success('Product hints completed!');
+            }}
+          />
           {getFlowStatus(ANNOUNCEMENT_FLOW_ID) === 'COMPLETED_FLOW' && (
             <FrigadeForm
               type='modal'
@@ -141,7 +138,7 @@ const Home: NextPage = () => {
               styleOverrides: {
                 modalContainer: {
                   width: '1000px',
-                  height: '600px',
+                  height: '560px',
                 },
               },
             }}
@@ -308,12 +305,18 @@ const Home: NextPage = () => {
                         flowId={CHECKLIST_FLOW_ID}
                         type='modal'
                         checklistStyle='with-guide'
+                        appearance={{
+                          styleOverrides: {
+                            modalContainer: {
+                              height: '550px',
+                            },
+                          },
+                        }}
                         onButtonClick={(step: StepData) => {
-                          if (step.id === EMBEDDED_TIPS_STEP_ID) {
-                            setShowEmbeddedTips(true);
-                          }
                           if (step.id === PRODUCT_HINTS_STEP_ID) {
-                            setStartTour(true);
+                            addPropertiesToUser({
+                              qualifiedForHintsTour: true,
+                            });
                           }
                           return true;
                         }}
@@ -353,7 +356,8 @@ const Home: NextPage = () => {
                 {/*make a tailwind grid with 2 columns, the first one 2/3 and the second one 1/3*/}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-8'>
                   <div className='lg:col-span-2 space-y-4'>
-                    {showEmbeddedTips && (
+                    {getStepStatus(CHECKLIST_FLOW_ID, EMBEDDED_TIP_STEP_ID) ===
+                      'COMPLETED_STEP' && (
                       <FrigadeEmbeddedTip
                         flowId={EMBEDDED_TIP_FLOW_ID}
                         appearance={{
