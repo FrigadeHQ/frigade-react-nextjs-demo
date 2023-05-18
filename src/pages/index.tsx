@@ -51,7 +51,7 @@ const Home: NextPage = () => {
     colors: ['#336AF0', '#04071F', '#11204F', '#336AF0', '#04071F'],
   });
   const { setOpenFlowState } = useFlowOpens();
-  const { getFlowStatus, getStepStatus } = useFlows();
+  const { getFlowStatus, getStepStatus, markFlowNotStarted } = useFlows();
   const { addPropertiesToUser } = useUser();
 
   const [width, setWidth] = useState<number>(1024);
@@ -317,6 +317,7 @@ const Home: NextPage = () => {
                             addPropertiesToUser({
                               qualifiedForHintsTour: true,
                             });
+                            markFlowNotStarted(TOUR_FLOW_ID);
                           }
                           return true;
                         }}
