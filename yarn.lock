@@ -83,6 +83,13 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.20.15.tgz#eec9f36d8eaf0948bb88c87a46784b5ee9fd0c89"
   integrity sha512-DI4a1oZuf8wC+oAJA9RW6ga3Zbe8RZFt7kD9i4qAspz3I/yHet1VvC3DiSy/fsUvv5pvJuNPh0LPOdCcqinDPg==
 
+"@babel/runtime@^7.12.5":
+  version "7.21.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
+  integrity sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
 "@babel/template@^7.18.10":
   version "7.20.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.20.7.tgz#a15090c2839a83b02aa996c0b4994005841fd5a8"
@@ -151,14 +158,15 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@frigade/react@1.31.41":
-  version "1.31.41"
-  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.31.41.tgz#9a91cd5ec55bd779db7afacbb62020c8ce85d1bd"
-  integrity sha512-2Jk3jyydhdI4u4DZUBdtxWjJoNAbugTtF3Qw9xazXMRkj/H2Xfa9bsLGUtcU4GeI1LswNlBPTuMTY0b/01wQPA==
+"@frigade/react@1.31.51":
+  version "1.31.51"
+  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.31.51.tgz#80d0efa83b46f071a4f47b265eddd935d96f121c"
+  integrity sha512-iTVnZ1dozP5F0UW2A6AXUs3A+7eCY4umLyEOpySwZL1VgvJepThUhjVWBMHspD2OvAxTHm21LB3Dgy8Tl+JbDw==
   dependencies:
     dompurify "^3.0.1"
     framer-motion "6.5.0"
     react-dom "17.0.2"
+    react-error-boundary "^4.0.4"
     react-portal "^4.2.2"
     styled-components "5.3.6"
     swr "^2.0.3"
@@ -1058,6 +1066,13 @@ react-dom@18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-error-boundary@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-4.0.4.tgz#d2e84505b0a67cec7a6bf33b0146faadfe31597d"
+  integrity sha512-AbqMFx8bCsob8rCHZvJYQ42MQijK0/034RUvan9qrqyJCpazr8d9vKHrysbxcr6odoHLZvQEcYomFPoIqH9fow==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 react-hot-toast@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-hot-toast/-/react-hot-toast-2.4.0.tgz#b91e7a4c1b6e3068fc599d3d83b4fb48668ae51d"
@@ -1102,6 +1117,11 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
+
+regenerator-runtime@^0.13.11:
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
+  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 resolve@^1.1.7, resolve@^1.22.1:
   version "1.22.1"
