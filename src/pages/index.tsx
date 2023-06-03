@@ -31,8 +31,9 @@ const TOUR_FLOW_ID = 'flow_RAkvVt4kb61syA7g';
 const PRODUCT_ANNOUNCEMENT_STEP_ID = 'announcements';
 const DEMO_COMPLETE_FLOW_ID = 'flow_qUIhb7Ymm5jFDDYu';
 const ANNOUNCEMENT_FLOW_ID = 'flow_1hOrTHbUdcf64Jd0';
-const PRODUCT_HINTS_STEP_ID = 'productHints';
 const EMBEDDED_TIP_STEP_ID = 'embeddedTips';
+const PRODUCT_HINTS_STEP_ID = 'productHints';
+const ANNOUNCEMENTS_STEP_ID = 'announcements';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -319,6 +320,13 @@ const Home: NextPage = () => {
                             });
                             markFlowNotStarted(TOUR_FLOW_ID);
                           }
+                          if (step.id === ANNOUNCEMENTS_STEP_ID) {
+                            markFlowNotStarted(ANNOUNCEMENT_FLOW_ID);
+                          }
+                          if (step.id === EMBEDDED_TIP_STEP_ID) {
+                            markFlowNotStarted(EMBEDDED_TIP_FLOW_ID);
+                          }
+
                           return true;
                         }}
                       />
