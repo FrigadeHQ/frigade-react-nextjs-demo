@@ -148,9 +148,9 @@ const Home: NextPage = () => {
                     <div className='flex text-sm font-bold'>
                       {stepsCompleted} of {totalSteps}
                     </div>
-                    <div className='relative flex flex-grow h-[8px] bg-[#b1ceff80] rounded-[200px]'>
+                    <div className='relative flex flex-grow h-[10px] bg-gray-300/50 rounded-[200px]'>
                       <motion.div
-                        className='absolute top-0 left-0 h-full bg-brand-blue rounded-[200px]'
+                        className='absolute top-0 left-0 h-full bg-acme-red rounded-[200px]'
                         animate={{
                           width: `${
                             Math.max(0.05, stepsCompleted / totalSteps) * 100
@@ -170,7 +170,7 @@ const Home: NextPage = () => {
                           index == currentStep ? `` : `text-[#C5CBD3] `
                         )}
                       >
-                        <div className='flex items-center justify-center w-[24px] h-[24px] rounded-[100px]'>
+                        <div className='flex items-center justify-center text-acme-red w-[24px] h-[24px] rounded-[100px]'>
                           <Checkbox
                             checked={
                               step.complete || completedFormPages.has(index)

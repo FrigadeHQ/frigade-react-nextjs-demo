@@ -21,10 +21,10 @@ function Checkbox({
           cy='12'
           r='11.5'
           fill='#F4F8F9'
-          stroke={!current ? 'currentColor' : '#626262'}
+          stroke={!current ? '#C5CBD3' : 'currentColor'}
         ></circle>
         <path
-          stroke={!current ? 'currentColor' : '#626262'}
+          stroke={!current ? '#C5CBD3' : 'currentColor'}
           strokeLinecap='round'
           strokeLinejoin='round'
           strokeWidth='1.5'
@@ -42,7 +42,7 @@ function Checkbox({
       fill='none'
       viewBox='0 0 24 24'
     >
-      <circle cx='12' cy='12' r='12' fill='#0171F8'></circle>
+      <circle cx='12' cy='12' r='12' fill='currentColor'></circle>
       <path
         stroke='#fff'
         strokeLinecap='round'

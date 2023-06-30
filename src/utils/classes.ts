@@ -5,15 +5,12 @@ export function classNames(...classes: string[]) {
 }
 
 export const FORM_APPEARANCE = {
-  theme: {
-    colorPrimary: '#0171F8',
-  },
   styleOverrides: {
     formLabelRequired: {
       display: 'none',
     },
     button:
-      'without-ring rounded-md !min-w-[242px] inline-flex w-full !text-base justify-center bg-[#0171F8] px-4 py-3 text-white shadow-sm hover:opacity-90 focus:outline-none  disabled:opacity-20 !basis-1 grow',
+      'without-ring rounded-md !min-w-[242px] inline-flex w-full !text-base justify-center bg-acme-red px-4 py-3 text-white shadow-sm hover:opacity-90 focus:outline-none  disabled:opacity-20 !basis-1 grow',
     backButtonSecondary:
       'without-ring rounded-md !min-w-[242px] inline-flex w-full justify-center border border-borderStroke !text-base bg-[#0F1114] px-4 py-3 text-white shadow-sm hover:opacity-90 focus:outline-none disabled:opacity-20 sm:text-sm !basis-1 grow',
     ctaWrapper: {
@@ -69,6 +66,8 @@ export const WELCOME_MODAL_STYLE = {
     button: {
       fontWeight: 'normal',
       fontSize: '12px',
+      backgroundColor: '#0171F8',
+      borderColor: '#0171F8',
     },
     mediumTitle: {
       color: '#FFF',
