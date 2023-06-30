@@ -50,7 +50,6 @@ const Home: NextPage = () => {
     angle: 90,
     zIndex: 2500,
     position: 'fixed',
-    // colors: ['#336AF0', '#04071F', '#11204F', '#336AF0', '#04071F'],
   });
   const { setOpenFlowState } = useFlowOpens();
   const { getFlowStatus, getStepStatus, markFlowNotStarted } = useFlows();
@@ -307,6 +306,14 @@ const Home: NextPage = () => {
                           styleOverrides: {
                             modalContainer: {
                               height: '550px',
+                            },
+                            button: {
+                              fontWeight: 'normal',
+                            },
+                            buttonSecondary: {
+                              borderColor: '#E5E7EB',
+                              color: '#000',
+                              fontWeight: 'normal',
                             },
                           },
                         }}
