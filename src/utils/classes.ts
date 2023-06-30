@@ -12,7 +12,7 @@ export const FORM_APPEARANCE = {
     button:
       'without-ring rounded-md !min-w-[242px] inline-flex w-full !text-base justify-center bg-acme-red px-4 py-3 text-white shadow-sm hover:opacity-90 focus:outline-none  disabled:opacity-20 !basis-1 grow',
     backButtonSecondary:
-      'without-ring rounded-md !min-w-[242px] inline-flex w-full justify-center border border-borderStroke text-black px-4 py-3 text-white shadow-sm hover:opacity-90 focus:outline-none disabled:opacity-20 sm:text-sm !basis-1 grow',
+      'without-ring rounded-md !min-w-[242px] inline-flex w-full justify-center border border-borderStroke text-black px-4 py-3 text-black shadow-sm hover:opacity-90 focus:outline-none disabled:opacity-20 sm:text-sm !basis-1 grow',
     ctaWrapper: {
       justifyContent: 'flex-end',
       flexGrow: '1',
