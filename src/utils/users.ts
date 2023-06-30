@@ -38,7 +38,7 @@ export function getOrganizationId(): string {
 export function resetAllIds() {
   localStorage.clear();
   // Refresh the page
-  window.location.reload();
+  window.location.href = '/';
 }
 
 function generateNewUserId() {

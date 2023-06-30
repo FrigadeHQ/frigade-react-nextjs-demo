@@ -29,8 +29,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             colorText: '#3d3d3d',
             colorTextSecondary: '#494949',
             colorTextOnPrimaryBackground: '#fff',
-            colorPrimary: '#2956B5',
+            colorPrimary: '#FA2555',
             colorBorder: '#E2E2E2',
+            borderRadius: 12,
           },
         },
       }}

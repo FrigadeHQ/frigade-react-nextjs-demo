@@ -1,5 +1,3 @@
-// Create a placeholder component with tailwind. Essentially this is just a gray pill with no text.
-
 import React from 'react';
 import { classNames } from '../utils/classes';
 

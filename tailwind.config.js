@@ -12,9 +12,10 @@ module.exports = {
     extend: {
       colors: {
         'background-gray': '#F3F3F3',
-        // 'gray-medium': '#E2E2E2',
-        // 'gray-dark': '#DADADA',
-        // black: '#3d3d3d',
+        'acme-red': '#FA2555',
+        'brand-blue': '#0171F8',
+        'brand-light-blue': '#17A9F9',
+        'brand-purple': '#443AFA',
       },
     },
   },
