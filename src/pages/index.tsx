@@ -60,6 +60,7 @@ const Home: NextPage = () => {
     getNumberOfStepsCompleted(flowId)
   );
   const steps = getFlowSteps(flowId);
+  const flowStatus = getFlowStatus(flowId);
 
   const [width, setWidth] = useState<number>(1024);
 
@@ -83,7 +84,6 @@ const Home: NextPage = () => {
     };
   }, []);
 
-  // Use effect to store completedFormPages in local storage
   useEffect(() => {
     if (!window) {
       return;
@@ -93,6 +93,12 @@ const Home: NextPage = () => {
       JSON.stringify(Array.from(completedFormPages))
     );
   }, [completedFormPages]);
+
+  useEffect(() => {
+    if (flowStatus === 'COMPLETED_FLOW') {
+      router.push('/dashboard');
+    }
+  }, [flowStatus]);
 
   const isMobile = width <= 1024;
 
@@ -116,17 +122,18 @@ const Home: NextPage = () => {
           </div>
         </div>
       )}
-      {isLoadingFrigade && (
-        <div className='w-full h-full flex justify-center items-center align-middle px-8'>
-          <div className='flex justify-center items-center h-screen'>
-            <div className='relative inline-flex'>
-              <div className='w-8 h-8 bg-blue-500 rounded-full'></div>
-              <div className='w-8 h-8 bg-blue-500 rounded-full absolute top-0 left-0 animate-ping'></div>
-              <div className='w-8 h-8 bg-blue-500 rounded-full absolute top-0 left-0 animate-pulse'></div>
+      {isLoadingFrigade ||
+        (flowStatus == 'COMPLETED_FLOW' && (
+          <div className='w-full h-full flex justify-center items-center align-middle px-8'>
+            <div className='flex justify-center items-center h-screen'>
+              <div className='relative inline-flex'>
+                <div className='w-8 h-8 bg-blue-500 rounded-full'></div>
+                <div className='w-8 h-8 bg-blue-500 rounded-full absolute top-0 left-0 animate-ping'></div>
+                <div className='w-8 h-8 bg-blue-500 rounded-full absolute top-0 left-0 animate-pulse'></div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        ))}
       {!isMobile && !isLoadingFrigade && (
         <>
           <div
@@ -192,7 +199,7 @@ const Home: NextPage = () => {
                       resetDemo();
                     }}
                   >
-                    Reset Demo
+                    Reset
                   </button>
                 </div>
               </div>
@@ -202,9 +209,6 @@ const Home: NextPage = () => {
                     allowBackNavigation
                     type='inline'
                     flowId={flowId}
-                    onComplete={() => {
-                      router.push('/dashboard');
-                    }}
                     onStepCompletion={(
                       step,
                       index,
