@@ -17,6 +17,7 @@ import {
 import { motion } from 'framer-motion';
 import TopBanner from '../components/TopBanner';
 import { useRouter } from 'next/router';
+import DemoCTAs from '../components/DemoCTAs';
 
 const Home: NextPage = () => {
   const { reward, isAnimating } = useReward(`reward`, 'confetti', {
@@ -193,14 +194,7 @@ const Home: NextPage = () => {
                   })}
                 </div>
                 <div className='mt-12 flex-grow h-full items-end flex'>
-                  <button
-                    className='bg-brand-blue text-white !rounded-[4px] p-2 text-xs hover:opacity-90'
-                    onClick={() => {
-                      resetDemo();
-                    }}
-                  >
-                    Reset
-                  </button>
+                  <DemoCTAs />
                 </div>
               </div>
               <div className='relative flex-grow w-0 flex-1'>

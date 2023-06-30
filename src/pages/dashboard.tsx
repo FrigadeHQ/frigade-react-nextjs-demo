@@ -18,12 +18,13 @@ import {
   useFlows,
   useUser,
 } from '@frigade/react';
-import { getUserId, resetAllIds } from '../utils/users';
+import { getUserId } from '../utils/users';
 import Placeholder from '../components/Placeholder';
 import { useReward } from 'react-rewards';
 import Script from 'next/script';
 import toast from 'react-hot-toast';
 import TopBanner from '../components/TopBanner';
+import DemoCTAs from '../components/DemoCTAs';
 
 const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
 const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
@@ -236,30 +237,7 @@ const Home: NextPage = () => {
                     Username:&nbsp;
                     <span className='font-semibold'>{getUserId()}</span>
                   </div>
-                  <div className='flex'>
-                    <button
-                      className='bg-white px-2 whitespace-nowrap w-auto border border-blue-700 rounded-md flex items-center justify-center h-8  text-blue-900 text-xs'
-                      onClick={() => {
-                        resetAllIds();
-                      }}
-                    >
-                      Reset
-                    </button>
-                    <a
-                      className='bg-white px-2 whitespace-nowrap w-auto border border-blue-700 rounded-md flex items-center justify-center h-8 ml-2  text-blue-900 text-xs'
-                      href='https://github.com/FrigadeHQ/frigade-react-nextjs-demo'
-                      target='_blank'
-                    >
-                      Source code
-                    </a>
-                    <a
-                      className='bg-blue-50 px-2  whitespace-nowrap text-center w-auto border border-blue-700 rounded-md flex items-center justify-center h-8 text-blue-900 text-xs ml-2'
-                      href='https://frigade.com'
-                      target='_blank'
-                    >
-                      Website
-                    </a>
-                  </div>
+                  <DemoCTAs />
                 </nav>
               </div>
             </div>
