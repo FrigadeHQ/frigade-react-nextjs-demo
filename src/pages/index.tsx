@@ -144,7 +144,7 @@ const Home: NextPage = () => {
           <div className='flex flex-col min-h-screen'>
             <TopBanner />
             <div className='flex flex-row flex-1'>
-              <div className='flex bg-[#F4F8F9] p-8 flex-col justify-start w-[320px]'>
+              <div className='flex bg-gray-50 p-8 flex-col justify-start w-[320px]'>
                 <div>
                   <img className='h-13 w-auto pb-6' src='/logo.svg' />
                 </div>
