@@ -198,7 +198,7 @@ const Home: NextPage = () => {
                 </div>
               </div>
               <div className='relative flex-grow w-0 flex-1'>
-                <div className='m-auto max-w-[500px] pt-32 pb-12'>
+                <div className='m-auto max-w-[500px] pt-12 pb-12'>
                   <FrigadeForm
                     allowBackNavigation
                     type='inline'
