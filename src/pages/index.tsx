@@ -232,7 +232,7 @@ const Home: NextPage = () => {
                         setCountry(countryName);
                       }
                       if (
-                        step.id == 'workspace-setup' &&
+                        step.id == 'welcome' &&
                         stepSpecificFormData?.data['company-name']
                       ) {
                         const company =
