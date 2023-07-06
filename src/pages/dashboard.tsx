@@ -6,7 +6,7 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid';
-import { classNames } from '../utils/classes';
+import { classNames, WELCOME_MODAL_STYLE } from '../utils/classes';
 import {
   FrigadeChecklist,
   FrigadeEmbeddedTip,
@@ -135,6 +135,7 @@ const Home: NextPage = () => {
               type='modal'
               flowId={DEMO_COMPLETE_FLOW_ID}
               endFlowOnDismiss
+              appearance={WELCOME_MODAL_STYLE}
             />
           )}
           {getStepStatus(CHECKLIST_FLOW_ID, PRODUCT_ANNOUNCEMENT_STEP_ID) ===
@@ -284,6 +285,12 @@ const Home: NextPage = () => {
                           styleOverrides: {
                             modalContainer: {
                               height: '550px',
+                            },
+                            checklistTitle: {
+                              marginBottom: '10px',
+                            },
+                            checklistSubtitle: {
+                              marginBottom: '30px',
                             },
                             button: {
                               fontWeight: 'normal',
