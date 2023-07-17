@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { Bars3Icon, StopIcon } from '@heroicons/react/24/outline';
+import { StopIcon } from '@heroicons/react/24/outline';
 import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
     }, 700);
   }, [hasShownChecklistOnLoad, setHasShownChecklistOnLoad, setOpenFlowState]);
 
-  const isMobile = width <= 768;
+  const isMobile = width <= 1024;
 
   return (
     <>
@@ -103,7 +103,7 @@ const Home: NextPage = () => {
       {isMobile && (
         <div className='w-full h-full flex justify-center items-center align-middle px-8'>
           <div>
-            <h1>This demo is not supported on mobile devices</h1>
+            <h1>This demo is not supported on small devices</h1>
             <br />
             <a href='https://frigade.com' className='text-blue-500'>
               Return to Frigade.com
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
           )}
           <div className=''>
             {/* Static sidebar for desktop */}
-            <div className='hidden z-[105] lg:fixed lg:inset-y-0 lg:z-[105] lg:flex lg:w-72 lg:flex-col'>
+            <div className='z-[105] lg:fixed lg:inset-y-0 lg:z-[105] lg:flex lg:w-72 lg:flex-col'>
               {/* Sidebar component, swap this element with another sidebar if you like */}
               <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4'>
                 <div className='flex mt-16 pt-1 items-center'>
@@ -244,19 +244,6 @@ const Home: NextPage = () => {
             </div>
             <div className='lg:pl-72'>
               <div className='sticky top-0 z-[105] flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 sm:gap-x-6 sm:px-6 lg:px-8'>
-                <button
-                  type='button'
-                  className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
-                >
-                  <span className='sr-only'>Open sidebar</span>
-                  <Bars3Icon className='h-6 w-6' aria-hidden='true' />
-                </button>
-
-                {/* Separator */}
-                <div
-                  className='h-6 w-px bg-gray-200 lg:hidden'
-                  aria-hidden='true'
-                />
                 <div className='flex flex-1 gap-x-4 self-stretch lg:gap-x-6'>
                   <div className='relative flex flex-1'>
                     <label htmlFor='search-field' className='sr-only'>
