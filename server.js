@@ -13,6 +13,8 @@ const httpsOptions = {
   key: fs.readFileSync('./certs/localhost.key'),
   cert: fs.readFileSync('./certs/localhost.crt'),
 }
+const { execFile } = require('child_process');
+
 app.prepare().then(() => {
   createServer(httpsOptions, (req, res) => {
     const parsedUrl = parse(req.url, true)
@@ -23,3 +25,13 @@ app.prepare().then(() => {
     console.log('> Server started on https://localhost:5678')
   })
 })
+
+function openBrowser(url) {
+  if (/^win/.test(process.platform)) {
+    execFile('cmd', ['/c', 'start', url]);
+  } else {
+    execFile('xdg-open', [url]);
+  }
+}
+
+openBrowser('https://localhost:5678');
