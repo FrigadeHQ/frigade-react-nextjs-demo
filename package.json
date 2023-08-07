@@ -1,8 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "yarn open-browser && node server.js",
-    "open-browser": "open https://localhost:5678",
+    "dev": "open https://localhost:5678 & node server.js",
     "build": "next build && next export",
     "start": "next start"
   },
