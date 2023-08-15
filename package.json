@@ -6,12 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "@frigade/react": "1.32.78",
+    "@frigade/react": "1.35.5",
     "@headlessui/react": "^1.7.9",
     "@heroicons/react": "^2.0.14",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "babel-plugin-styled-components": "^2.1.1",
+    "framer-motion": "^10.15.2",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",

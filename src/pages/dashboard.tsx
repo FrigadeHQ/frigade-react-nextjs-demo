@@ -267,25 +267,27 @@ const Home: NextPage = () => {
                         hideOnFlowCompletion
                         flowId={CHECKLIST_FLOW_ID}
                         type='modal'
-                        checklistStyle='with-guide'
                         appearance={{
                           styleOverrides: {
-                            modalContainer: {
-                              height: '550px',
-                            },
-                            checklistTitle: {
-                              marginBottom: '10px',
-                            },
-                            checklistSubtitle: {
-                              marginBottom: '30px',
-                            },
-                            button: {
-                              fontWeight: 'normal',
-                            },
                             buttonSecondary: {
                               borderColor: '#E5E7EB',
                               color: '#000',
                               fontWeight: 'normal',
+                            },
+                            checklistStepImage: {
+                              borderStyle: 'solid !important',
+                              borderWidth: '1px !important',
+                              borderColor: '#E2E2E2 !important',
+                            },
+                            checklistStepsContainer: {
+                              width: '100%',
+                            },
+                            checklistSubtitle: {
+                              marginRight: '10px',
+                            },
+                            modalContainer: {
+                              padding: '0px',
+                              overflow: 'hidden',
                             },
                           },
                         }}
@@ -351,6 +353,7 @@ const Home: NextPage = () => {
                               maxWidth: '100%',
                               paddingBottom: '16px',
                               paddingTop: '16px',
+                              borderRadius: '8px',
                             },
                             embeddedTipButton: {
                               marginBottom: '0px',

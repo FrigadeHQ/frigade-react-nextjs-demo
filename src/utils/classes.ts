@@ -62,12 +62,16 @@ export const WELCOME_MODAL_STYLE = {
       color: '#f1f2f4',
       borderColor: '#4e5765',
       fontSize: '12px',
+      order: 2,
+      width: '50%',
     },
     button: {
       fontWeight: 'normal',
       fontSize: '12px',
       backgroundColor: '#0171F8',
       borderColor: '#0171F8',
+      order: 1,
+      width: '50%',
     },
     mediumTitle: {
       color: '#FFF',
@@ -108,6 +112,7 @@ export const WELCOME_MODAL_STYLE = {
     ctaWrapper: {
       display: 'flex',
       flexDirection: 'row',
+      justifyContent: 'left',
       width: '100%',
     },
     poweredByFrigadeRibbon: {

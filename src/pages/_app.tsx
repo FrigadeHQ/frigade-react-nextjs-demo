@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             colorTextOnPrimaryBackground: '#fff',
             colorPrimary: '#FA2555',
             colorBorder: '#E2E2E2',
-            borderRadius: 12,
+            borderRadius: 8,
           },
         },
       }}
