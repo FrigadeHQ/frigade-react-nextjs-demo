@@ -9,10 +9,10 @@ export const FORM_APPEARANCE = {
     formLabelRequired: {
       display: 'none',
     },
-    button:
-      'without-ring rounded-md !min-w-[242px] inline-flex w-full !text-base justify-center bg-acme-red px-4 py-3 text-white shadow-sm hover:opacity-90 focus:outline-none  disabled:opacity-20 !basis-1 grow',
-    backButtonSecondary:
-      'without-ring rounded-md !min-w-[242px] inline-flex w-full justify-center border border-borderStroke text-black px-4 py-3 text-black shadow-sm hover:opacity-90 focus:outline-none disabled:opacity-20 sm:text-sm !basis-1 grow',
+    formLabel: {
+      fontSize: '14px',
+      marginBottom: '0px',
+    },
     ctaWrapper: {
       justifyContent: 'flex-end',
       flexGrow: '1',
@@ -41,16 +41,33 @@ export const FORM_APPEARANCE = {
       marginBottom: '24px',
     },
     multipleChoiceSelect: {
-      height: '60px',
-      fontSize: '16px',
+      height: '40px',
+      fontSize: '14px',
     },
     inputComponent: {
-      height: '60px',
-      fontSize: '16px',
+      height: '40px',
+      fontSize: '14px',
       color: '#0F1114',
+      '&::placeholder': {
+        fontSize: '14px',
+      },
     },
-    multipleChoiceListItem:
-      'relative my-4 flex cursor-pointer items-start border border-borderStroke  px-4 py-4 hover:opacity-80 text-[#0F1114] !mb-0',
+    button: {
+      fontSize: '14px',
+      height: '40px',
+      alignItems: 'center',
+    },
+    backButtonSecondary: {
+      fontSize: '14px',
+      height: '40px',
+      alignItems: 'center',
+    },
+    multipleChoiceListItem: {
+      fontSize: '14px',
+    },
+    multipleChoiceListItemSelected: {
+      fontSize: '14px',
+    },
   },
 } as Appearance;
 
@@ -64,6 +81,7 @@ export const WELCOME_MODAL_STYLE = {
       fontSize: '12px',
       order: 2,
       width: '50%',
+      height: '38px',
     },
     button: {
       fontWeight: 'normal',
@@ -72,6 +90,7 @@ export const WELCOME_MODAL_STYLE = {
       borderColor: '#0171F8',
       order: 1,
       width: '50%',
+      height: '38px',
     },
     mediumTitle: {
       color: '#FFF',

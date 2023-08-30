@@ -208,7 +208,7 @@ const Home: NextPage = () => {
                     allowBackNavigation
                     type='inline'
                     flowId={flowId}
-                    onStepCompletion={(
+                    validationHandler={async (
                       step,
                       index,
                       nextStep,
