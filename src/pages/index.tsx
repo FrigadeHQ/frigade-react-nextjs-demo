@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import {
   FrigadeForm,
+  FrigadeTour,
   useFlows,
   useOrganization,
   useUser,
@@ -140,6 +141,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         ))}
+      <FrigadeTour flowId='flow_gptOfiFnTmSroA9P' tooltipPosition='auto' />
       {!isMobile && !isLoadingFrigade && (
         <>
           <div
@@ -156,7 +158,7 @@ const Home: NextPage = () => {
                 <div className='text-[#7E899A] text-sm'>
                   Complete the following steps to get your account fully set up.
                 </div>
-                <div className='mt-8'>
+                <div className='mt-8' id='tour-searchbox'>
                   <div className='flex flex-row items-center gap-2'>
                     <div className='flex text-sm font-bold'>
                       {stepsCompleted} of {totalSteps}
