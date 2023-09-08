@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import {
   FrigadeForm,
-  StepData,
   useFlows,
   useOrganization,
   useUser,
@@ -175,7 +174,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className='mt-8'>
-                  {steps.map((step: any, index: number) => {
+                  {steps.map((step, index) => {
                     return (
                       <div
                         key={step.id}
@@ -210,11 +209,11 @@ const Home: NextPage = () => {
                     type='inline'
                     flowId={flowId}
                     validationHandler={async (
-                      step: StepData,
-                      index: number,
-                      nextStep: StepData,
-                      allFormData: any,
-                      stepSpecificFormData: any
+                      step,
+                      index,
+                      nextStep,
+                      allFormData,
+                      stepSpecificFormData
                     ) => {
                       setCompletedFormPages((prev) => {
                         prev.add(index);
