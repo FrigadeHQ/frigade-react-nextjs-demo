@@ -278,6 +278,7 @@ const Home: NextPage = () => {
                               borderStyle: 'solid !important',
                               borderWidth: '1px !important',
                               borderColor: '#E2E2E2 !important',
+                              minHeight: '345px',
                             },
                             checklistStepsContainer: {
                               width: '100%',
@@ -288,6 +289,7 @@ const Home: NextPage = () => {
                             modalContainer: {
                               padding: '0px',
                               overflow: 'hidden',
+                              minHeight: '600px',
                             },
                           },
                         }}
