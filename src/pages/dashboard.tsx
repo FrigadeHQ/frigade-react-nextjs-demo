@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/20/solid';
 import { classNames, WELCOME_MODAL_STYLE } from '../utils/classes';
 import {
+  FrigadeAnnouncement,
   FrigadeChecklist,
   FrigadeEmbeddedTip,
   FrigadeForm,
@@ -32,7 +33,7 @@ const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
 const TOUR_FLOW_ID = 'flow_RAkvVt4kb61syA7g';
 const PRODUCT_ANNOUNCEMENT_STEP_ID = 'announcements';
 const DEMO_COMPLETE_FLOW_ID = 'flow_qUIhb7Ymm5jFDDYu';
-const ANNOUNCEMENT_FLOW_ID = 'flow_1hOrTHbUdcf64Jd0';
+const ANNOUNCEMENT_FLOW_ID = 'flow_8vkVL2yJQbZxyZLA';
 const EMBEDDED_TIP_STEP_ID = 'embeddedTips';
 const PRODUCT_HINTS_STEP_ID = 'productHints';
 const ANNOUNCEMENTS_STEP_ID = 'announcements';
@@ -140,11 +141,9 @@ const Home: NextPage = () => {
           )}
           {getStepStatus(CHECKLIST_FLOW_ID, PRODUCT_ANNOUNCEMENT_STEP_ID) ===
             'COMPLETED_STEP' && (
-            <FrigadeForm
-              type='modal'
+            <FrigadeAnnouncement
               modalPosition='bottom-right'
               flowId={ANNOUNCEMENT_FLOW_ID}
-              endFlowOnDismiss
             />
           )}
           <div className=''>
