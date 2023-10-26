@@ -151,10 +151,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@frigade/react@1.37.13":
-  version "1.37.13"
-  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.37.13.tgz#de34ce73dc5d18dd68b870c0736cfd9db7defdf4"
-  integrity sha512-geLDkcsy2qp5HC41HydxSr2E4gSMdr93t9ZJrjLz7Kqv10Ie9ALec8EADjR3wgotqkFjyW2CXXwgino1x/3uRA==
+"@frigade/react@1.38.2":
+  version "1.38.2"
+  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.38.2.tgz#e18079c6fcf1e820bdc498ebe9ef69636759f693"
+  integrity sha512-dzPvfwLv0BKXTJa+awdQ4T581iKS50DVpYyErmZaPR/GfdBoLwzUjCsnJhZHmdnWI2JutvvDka7orQxX1NTg1Q==
   dependencies:
     core-js-pure "^3.32.0"
     dompurify "^3.0.1"
@@ -164,7 +164,7 @@
     styled-system "^5.1.5"
     swr "^2.2.0"
     uuid "^9.0.0"
-    zod "^3.21.4"
+    zod "^3.22.3"
 
 "@headlessui/react@^1.7.9":
   version "1.7.11"
@@ -1322,7 +1322,7 @@ yaml@^1.10.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
-zod@^3.21.4:
-  version "3.21.4"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.21.4.tgz#10882231d992519f0a10b5dd58a38c9dabbb64db"
-  integrity sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==
+zod@^3.22.3:
+  version "3.22.4"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.22.4.tgz#f31c3a9386f61b1f228af56faa9255e845cf3fff"
+  integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
