@@ -1,0 +1,10 @@
+data:
+  - id: embedded-tip
+    title: Check out this awesome new feature you're missing!
+    subtitle: This is a lightweight component that can teach users without being
+      overly intrusive.
+    primaryButtonTitle: Got it
+    secondaryButtonTitle: Ok
+    # imageUri: https://frigade.com/img/examples/grey-box.svg
+    autoMarkCompleted: true
+    dismissible: false

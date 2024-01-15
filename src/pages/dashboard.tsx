@@ -28,7 +28,6 @@ import TopBanner from '../components/TopBanner';
 import DemoCTAs from '../components/DemoCTAs';
 import {
   FLOW_ID_ANNOUNCEMENT,
-  FLOW_ID_ANNOUNCEMENT_MODAL,
   FLOW_ID_CHECKLIST,
   FLOW_ID_DEMO_COMPLETE_MODAL,
   FLOW_ID_EMBEDDED_TIP,
@@ -38,6 +37,7 @@ import {
 const EMBEDDED_TIP_STEP_ID = 'embeddedTips';
 const PRODUCT_HINTS_STEP_ID = 'productHints';
 const ANNOUNCEMENTS_STEP_ID = 'announcements';
+export const ANNOUNCEMENT_STEP_ID = 'announcements';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -140,7 +140,7 @@ const Home: NextPage = () => {
               appearance={WELCOME_MODAL_STYLE}
             />
           )}
-          {getStepStatus(FLOW_ID_CHECKLIST, FLOW_ID_ANNOUNCEMENT_MODAL) ===
+          {getStepStatus(FLOW_ID_CHECKLIST, ANNOUNCEMENT_STEP_ID) ===
             'COMPLETED_STEP' && (
             <FrigadeAnnouncement
               modalPosition='bottom-right'

@@ -1,0 +1,134 @@
+data:
+  - id: welcome
+    title: Onboarding Forms
+    subtitle: Frigade makes it easy to quickly build onboarding forms like this one. Not interested in forms? Click <a href="https://demo.frigade.com/dashboard" style="color:blue;">here</a> to see more examples.
+    type: multiInput
+    primaryButtonTitle: Continue
+    props:
+      data:
+        - id: company-name
+          type: text
+          title: Company name
+          placeholder: You can write whatever you like here
+          required: true
+          validation:
+            type: string
+            requiredError: Company name is required
+            invalidTypeError: Invalid company name
+            props:
+              - requirement: max
+                value: 32
+                message: Your company name cannot be longer than 32 characters
+        - id: team-size
+          title: Team size
+          type: multipleChoice
+          required: true
+          placeholder: Choose one you like
+          requireSelection: true
+          props:
+            minChoices: 1
+            maxChoices: 1
+            options:
+              - id: team-0-10
+                title: 0-10
+              - id: team-10-25
+                title: 10-25
+              - id: team-25-100
+                title: 25-100
+              - id: team-100-1000
+                title: 100-1,000
+              - id: team-1000-5000
+                title: 1,000-5,000
+              - id: team-5000+
+                title: 5,000+
+        - id: industry
+          title: Company industry
+          type: multipleChoice
+          required: true
+          placeholder: Select any industry
+          requireSelection: true
+          props:
+            minChoices: 1
+            maxChoices: 1
+            options:
+              - id: software
+                title: 💻 Software
+              - id: Agriculture
+                title: 🌾 Agriculture
+              - id: Food & Beverage
+                title: 🍔 Food & Beverage
+              - id: Retail
+                title: 🛍️ Retail
+              - id: Healthcare
+                title: 🏥 Healthcare
+              - id: Education
+                title: 🎓 Education
+              - id: Finance
+                title: 💰 Finance
+              - id: Manufacturing
+                title: 🏭 Manufacturing
+              - id: Transportation
+                title: 🚚 Transportation
+              - id: Construction
+                title: 🏗️ Construction
+              - id: Magic
+                title: ✨ Magic
+              - id: Other
+                title: 🌎 Other
+  - id: speed
+    title: Build Faster
+    subtitle: Quickly build with dropdowns, open inputs, or even your own custom
+      in-line React components.
+    type: multiInput
+    primaryButtonTitle: Continue
+    props:
+      data:
+        - id: dropdown
+          title: Frigade also supports custom variables (e.g. ${companyName})
+          type: multipleChoice
+          required: true
+          props:
+            minChoices: 1
+            maxChoices: 1
+            options:
+              - id: cool-1
+                title: Cool
+              - id: cool-2
+                title: Very Cool
+              - id: cool-3
+                title: Super Cool
+        - id: content-updates
+          title: Then, you can easily edit your forms from the Frigade web app.
+          type: multipleChoice
+          required: true
+          props:
+            minChoices: 1
+            maxChoices: 1
+            options:
+              - id: good-0
+                title: Pretty good
+              - id: good-1
+                title: Pretty, pretty good
+              - id: good-2
+                title: Pretty, pretty, pretty good
+  - id: custom-styling
+    title: Fully customizable
+    subtitle: Frigade Forms are sort of like a fully customizable, native Typeform.
+      They are can be fully integrated with your existing design system.
+    type: multiInput
+    primaryButtonTitle: Continue
+    props:
+      data:
+        - id: custom-stylinh
+          type: multipleChoiceList
+          required: true
+          props:
+            minChoices: 1
+            maxChoices: 3
+            options:
+              - id: love
+                title: I love that flexibility.
+              - id: design
+                title: Design and quality are important to me.
+              - id: funny
+                title: Damnnnn. What can't Frigade do?

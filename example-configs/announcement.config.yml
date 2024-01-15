@@ -1,0 +1,11 @@
+steps:
+  - id: demo-announcement
+    title: This is an announcement
+    subtitle: It could be a blog post, webinar registration, or even a link to your new mixtape. Anything is possible!
+    primaryButtonTitle: How'd you know about my mixtape?
+    imageUri: https://frigade.com/img/examples/grey-box.svg
+    # videoUri: https://frigade.com/video/demo.mp4
+    props:
+      loopVideo: true
+      hideControls: true
+      autoplayVideo: true

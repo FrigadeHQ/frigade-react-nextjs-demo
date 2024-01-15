@@ -1,0 +1,29 @@
+data:
+  - id: frigade-profile-tooltip
+    title: Your profile lives here
+    subtitle: Unfortunately, it's utterly and completely useless in this demo
+    primaryButtonTitle: Got it
+    imageUri: https://frigade.com/img/examples/grey-box-two.svg
+    selector: .frigade-profile-tooltip
+    props:
+      zIndex: 106
+      position: fixed
+
+  - id: frigade-on-page-tooltip
+    title: Seen enough?
+    subtitle: Go deeper with the Frigade developer documentation.
+    primaryButtonTitle: Continue
+    secondaryButtonTitle: View docs
+    secondaryButtonUri: https://docs.frigade.com/
+    selector: "#frigade-on-page-tooltip"
+
+  - id: frigade-sidebar-tooltip
+    title: Gently guide users with hints
+    subtitle: These can be useful for key actions, or even to show existing users
+      new features.
+    primaryButtonTitle: Awesome
+    skippable: true
+    selector: .frigade-sidebar-tooltip
+    props:
+      zIndex: 106
+      position: fixed

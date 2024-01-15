@@ -1,0 +1,54 @@
+title: Getting started
+subtitle: Check out an example of a Frigade onboarding experience
+data:
+  - id: registration
+    stepName: Onboarding forms
+    title: Onboarding forms
+    subtitle: This step is an example of an onboarding pattern which gives users
+      credit for what they already completed to build momentum.
+    imageUri: https://frigade.com/img/examples/checklist-v2.png
+    primaryButtonTitle: Got it
+    autoMarkCompleted: true
+    completionCriteria: user.flow('flow_UMMgCreCvittYd68') == COMPLETED_FLOW
+  - id: embeddedTips
+    stepName: Embedded product tips
+    title: Embedded product tips
+    subtitle: Frigade can help you teach your product through helpful product tips
+      embedded directly in your user interface.
+    autoMarkCompleted: true
+    primaryButtonTitle: Show an example
+    secondaryButtonTitle: View docs
+    secondaryButtonUri: https://docs.frigade.com/component/embedded-tip
+    imageUri: https://frigade.com/img/examples/figma-product-upsell.png
+  - id: productHints
+    stepName: Product hints
+    title: Product hints
+    subtitle: Frigade supports traditional guided product tours as well as product
+      hints. Complete all the hints to get credit for this step.
+    primaryButtonTitle: Show me hints
+    secondaryButtonTitle: View docs
+    secondaryButtonUri: https://docs.frigade.com/component/tour
+    imageUri: https://frigade.com/img/examples/tour.png
+    completionCriteria: user.flow('flow_RAkvVt4kb61syA7g') == COMPLETED_FLOW
+  - id: announcements
+    stepName: Product announcements
+    title: Engage users with content
+    subtitle: It's not just onboarding. Frigade can be used to send targeted
+      announcements, content, and surveys to users.
+    primaryButtonTitle: See an announcement
+    secondaryButtonTitle: View docs
+    secondaryButtonUri: https://docs.frigade.com/component/announcement
+    imageUri: https://frigade.com/img/examples/announcement.png
+    autoMarkCompleted: true
+  - id: personalDemo
+    stepName: Learn more
+    title: Want to see how we built this demo?
+    subtitle: Check out the project on Github or grab time with one of our team
+      members to learn more.
+    secondaryButtonTitle: Source Code
+    secondaryButtonUri: https://github.com/FrigadeHQ/frigade-react-nextjs-demo
+    primaryButtonTitle: Grab time
+    primaryButtonUri: https://cal.com/team/frigade/frigade-demo
+    imageUri: https://frigade.com/img/examples/calendar.png
+    autoMarkCompleted: true
+    skippable: true

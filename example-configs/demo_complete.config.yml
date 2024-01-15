@@ -1,0 +1,9 @@
+data:
+  - id: feature-announcement
+    title: Congrats! You've finished the demo
+    subtitle: We hope this gave you a taste of some of what's possible with Frigade.
+    type: callToAction
+    primaryButtonTitle: Visit our website
+    primaryButtonUri: https://frigade.com/
+    imageUri: https://app.frigade.com/images/onboarding/welcome-modal.svg
+    # imageUri: https://frigade.com/img/examples/grey-box.svg
