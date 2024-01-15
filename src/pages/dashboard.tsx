@@ -26,14 +26,15 @@ import Script from 'next/script';
 import toast from 'react-hot-toast';
 import TopBanner from '../components/TopBanner';
 import DemoCTAs from '../components/DemoCTAs';
+import {
+  FLOW_ID_ANNOUNCEMENT,
+  FLOW_ID_ANNOUNCEMENT_MODAL,
+  FLOW_ID_CHECKLIST,
+  FLOW_ID_DEMO_COMPLETE_MODAL,
+  FLOW_ID_EMBEDDED_TIP,
+  FLOW_ID_TOUR,
+} from '../utils/flow-ids';
 
-const CHECKLIST_FLOW_ID = 'flow_WdDXTX8gF5fK5AN2';
-const FORM_FLOW_ID = 'flow_Hi20i2TiW2S1nLj5';
-const EMBEDDED_TIP_FLOW_ID = 'flow_RCbUX0bxjIBtPjgW';
-const TOUR_FLOW_ID = 'flow_RAkvVt4kb61syA7g';
-const PRODUCT_ANNOUNCEMENT_STEP_ID = 'announcements';
-const DEMO_COMPLETE_FLOW_ID = 'flow_qUIhb7Ymm5jFDDYu';
-const ANNOUNCEMENT_FLOW_ID = 'flow_8vkVL2yJQbZxyZLA';
 const EMBEDDED_TIP_STEP_ID = 'embeddedTips';
 const PRODUCT_HINTS_STEP_ID = 'productHints';
 const ANNOUNCEMENTS_STEP_ID = 'announcements';
@@ -82,7 +83,7 @@ const Home: NextPage = () => {
     reward();
     setHasShownChecklistOnLoad(true);
     setTimeout(() => {
-      setOpenFlowState(CHECKLIST_FLOW_ID, true);
+      setOpenFlowState(FLOW_ID_CHECKLIST, true);
     }, 700);
   }, [hasShownChecklistOnLoad, setHasShownChecklistOnLoad, setOpenFlowState]);
 
@@ -121,7 +122,7 @@ const Home: NextPage = () => {
           />
           <FrigadeTour
             tooltipPosition='auto'
-            flowId={TOUR_FLOW_ID}
+            flowId={FLOW_ID_TOUR}
             showTooltipsSimultaneously
             showHighlightOnly
             showStepCount={false}
@@ -131,19 +132,19 @@ const Home: NextPage = () => {
               toast.success('Product hints completed!');
             }}
           />
-          {getFlowStatus(ANNOUNCEMENT_FLOW_ID) === 'COMPLETED_FLOW' && (
+          {getFlowStatus(FLOW_ID_ANNOUNCEMENT) === 'COMPLETED_FLOW' && (
             <FrigadeForm
               type='modal'
-              flowId={DEMO_COMPLETE_FLOW_ID}
+              flowId={FLOW_ID_DEMO_COMPLETE_MODAL}
               endFlowOnDismiss
               appearance={WELCOME_MODAL_STYLE}
             />
           )}
-          {getStepStatus(CHECKLIST_FLOW_ID, PRODUCT_ANNOUNCEMENT_STEP_ID) ===
+          {getStepStatus(FLOW_ID_CHECKLIST, FLOW_ID_ANNOUNCEMENT_MODAL) ===
             'COMPLETED_STEP' && (
             <FrigadeAnnouncement
               modalPosition='bottom-right'
-              flowId={ANNOUNCEMENT_FLOW_ID}
+              flowId={FLOW_ID_ANNOUNCEMENT}
             />
           )}
           <div className=''>
@@ -159,7 +160,7 @@ const Home: NextPage = () => {
                 <nav className='flex flex-1 flex-col'>
                   <FrigadeProgressBadge
                     title='Frigade Guided Demo'
-                    flowId={CHECKLIST_FLOW_ID}
+                    flowId={FLOW_ID_CHECKLIST}
                     hideOnFlowCompletion
                     className='w-full mb-8 mt-4'
                     appearance={{
@@ -264,7 +265,7 @@ const Home: NextPage = () => {
                     <div>
                       <FrigadeChecklist
                         hideOnFlowCompletion
-                        flowId={CHECKLIST_FLOW_ID}
+                        flowId={FLOW_ID_CHECKLIST}
                         type='modal'
                         appearance={{
                           styleOverrides: {
@@ -297,13 +298,13 @@ const Home: NextPage = () => {
                             addPropertiesToUser({
                               qualifiedForHintsTour: true,
                             });
-                            markFlowNotStarted(TOUR_FLOW_ID);
+                            markFlowNotStarted(FLOW_ID_TOUR);
                           }
                           if (step.id === ANNOUNCEMENTS_STEP_ID) {
-                            markFlowNotStarted(ANNOUNCEMENT_FLOW_ID);
+                            markFlowNotStarted(FLOW_ID_ANNOUNCEMENT);
                           }
                           if (step.id === EMBEDDED_TIP_STEP_ID) {
-                            markFlowNotStarted(EMBEDDED_TIP_FLOW_ID);
+                            markFlowNotStarted(FLOW_ID_EMBEDDED_TIP);
                           }
 
                           return true;
@@ -344,10 +345,10 @@ const Home: NextPage = () => {
                 {/*make a tailwind grid with 2 columns, the first one 2/3 and the second one 1/3*/}
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 lg:px-8'>
                   <div className='lg:col-span-2 space-y-4'>
-                    {getStepStatus(CHECKLIST_FLOW_ID, EMBEDDED_TIP_STEP_ID) ===
+                    {getStepStatus(FLOW_ID_CHECKLIST, EMBEDDED_TIP_STEP_ID) ===
                       'COMPLETED_STEP' && (
                       <FrigadeEmbeddedTip
-                        flowId={EMBEDDED_TIP_FLOW_ID}
+                        flowId={FLOW_ID_EMBEDDED_TIP}
                         appearance={{
                           styleOverrides: {
                             embeddedTipContainer: {

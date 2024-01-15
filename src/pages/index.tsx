@@ -19,6 +19,10 @@ import TopBanner from '../components/TopBanner';
 import { useRouter } from 'next/router';
 import DemoCTAs from '../components/DemoCTAs';
 import Script from 'next/script';
+import {
+  FLOW_ID_ONBOARDING_FORM,
+  FLOW_ID_WELCOME_FORM_MODAL,
+} from '../utils/flow-ids';
 
 const Home: NextPage = () => {
   const { reward, isAnimating } = useReward(`reward`, 'confetti', {
@@ -54,15 +58,14 @@ const Home: NextPage = () => {
   const { addPropertiesToOrganization } = useOrganization();
   const router = useRouter();
 
-  const flowId = 'flow_UMMgCreCvittYd68';
-  const currentStep = getCurrentStepIndex(flowId);
-  const totalSteps = getNumberOfSteps(flowId);
+  const currentStep = getCurrentStepIndex(FLOW_ID_ONBOARDING_FORM);
+  const totalSteps = getNumberOfSteps(FLOW_ID_ONBOARDING_FORM);
   const stepsCompleted = Math.max(
     completedFormPages.size,
-    getNumberOfStepsCompleted(flowId)
+    getNumberOfStepsCompleted(FLOW_ID_ONBOARDING_FORM)
   );
-  const steps = getFlowSteps(flowId);
-  const flowStatus = getFlowStatus(flowId);
+  const steps = getFlowSteps(FLOW_ID_ONBOARDING_FORM);
+  const flowStatus = getFlowStatus(FLOW_ID_ONBOARDING_FORM);
 
   const [width, setWidth] = useState<number>(1024);
 
@@ -207,7 +210,7 @@ const Home: NextPage = () => {
                   <FrigadeForm
                     allowBackNavigation
                     type='inline'
-                    flowId={flowId}
+                    flowId={FLOW_ID_ONBOARDING_FORM}
                     validationHandler={async (
                       step,
                       index,
@@ -269,7 +272,7 @@ const Home: NextPage = () => {
                     }}
                   />
                   <FrigadeForm
-                    flowId='flow_6iuuuELhADXddJ6v'
+                    flowId={FLOW_ID_WELCOME_FORM_MODAL}
                     appearance={WELCOME_MODAL_STYLE}
                     dismissible={false}
                     type='modal'
