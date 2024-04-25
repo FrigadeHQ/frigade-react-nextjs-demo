@@ -1,8 +1,9 @@
-data:
+steps:
   - id: frigade-profile-tooltip
     title: Your profile lives here
     subtitle: Unfortunately, it's utterly and completely useless in this demo
     primaryButtonTitle: Got it
+    completionCriteria: user.event('finish_step_1').count >= 1
     imageUri: https://frigade.com/img/examples/grey-box-two.svg
     selector: .frigade-profile-tooltip
     props:
