@@ -1,14 +1,13 @@
 import type {NextPage} from 'next';
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import Head from 'next/head';
 import {StopIcon} from '@heroicons/react/24/outline';
 import {ChevronDownIcon, MagnifyingGlassIcon,} from '@heroicons/react/20/solid';
 import {classNames} from '../utils/classes';
-import {FrigadeTour, useFlows, useUser,} from '@frigade/react';
+import {FrigadeChecklist, StepData, useFlows, useUser,} from '@frigade/react';
 import {getUserId} from '../utils/users';
 import Placeholder from '../components/Placeholder';
 import Script from 'next/script';
-import toast from 'react-hot-toast';
 import TopBanner from '../components/TopBanner';
 import DemoCTAs from '../components/DemoCTAs';
 
@@ -18,13 +17,14 @@ const teams = [
   { id: 3, name: '', href: '#', initial: 'C', current: false },
 ];
 
-const FLOW_ID_TOUR = 'flow_9WjaRrqk';
+const FLOW_ID_CHECKLIST = 'flow_cKrTqPEh';
 const Home: NextPage = () => {
-  const { getCurrentStepIndex, getStepStatus, getFlowStatus } = useFlows();
-  const { trackEventForUser } = useUser();
+  const { getCurrentStepIndex, getFlowStatus, isFlowAvailableToUser } = useFlows();
+  const {  addPropertiesToUser } = useUser();
 
-  const currentStepIndex = getCurrentStepIndex(FLOW_ID_TOUR);
-  const flowStatus = getFlowStatus(FLOW_ID_TOUR);
+  const currentStepIndex = getCurrentStepIndex(FLOW_ID_CHECKLIST);
+  const flowStatus = getFlowStatus(FLOW_ID_CHECKLIST);
+  const isVisible = isFlowAvailableToUser(FLOW_ID_CHECKLIST);
 
 
   useEffect(() => {
@@ -35,6 +35,34 @@ const Home: NextPage = () => {
   useEffect(() => {
     console.log('getFlowStatus', flowStatus);
   }, [flowStatus]);
+
+  useEffect(() => {
+    addPropertiesToUser({orgId: 14645})
+  }, []);
+
+
+  const handleButtonClick = useCallback(
+
+      (
+        step: StepData,
+        index?: number,
+        cta?: "primary" | "secondary" | "link" | "back" | "collapse" | "expand"
+      ) => {
+        // const props = step.props;
+        // if (cta === "primary" && (props?.primaryLink || props?.primaryLegacyLink)) {
+        //   handleLink(history, props.primaryLink, props.primaryLegacyLink, props.primaryTarget);
+        // } else if (cta === "secondary" && (props?.secondaryLink || props?.secondaryLegacyLink)) {
+        //   handleLink(
+        //     history,
+        //     props.secondaryLink,
+        //     props.secondaryLegacyLink,
+        //     props.secondaryTarget
+        //   );
+        // }
+        return false;
+      },
+    [history]
+  );
 
 
   return (
@@ -58,17 +86,15 @@ const Home: NextPage = () => {
             id='reward'
             className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[2500]'
           />
-          <FrigadeTour
-            tooltipPosition='auto'
-            flowId={FLOW_ID_TOUR}
-            // showTooltipsSimultaneously
-            // showHighlightOnly
-            showStepCount={true}
-            dismissible={true}
-            dismissBehavior='complete-step'
-            onComplete={() => {
-              toast.success('Product hints completed!');
-            }}
+          <FrigadeChecklist
+            // appearance={appearance}
+            // className={styles.component}
+            // customVariables={customVariables}
+            flowId={FLOW_ID_CHECKLIST}
+            type="modal"
+            onButtonClick={handleButtonClick}
+            // onDismiss={() => handleDismiss(flow.id)}
+            visible={isVisible} // visibility map is only changed on onDismiss call
           />
           <div className=''>
             {/* Static sidebar for desktop */}
@@ -117,10 +143,12 @@ const Home: NextPage = () => {
                         <li>
                           <button className='group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold items-center'
                             onClick={() => {
-                              trackEventForUser('finish_step_1');
+                              addPropertiesToUser({
+                                currentRoute: '/home',
+                              })
                             }}
                           >
-                           Send tracking event to finish step 1 in tour
+                           Set current route to /home
                           </button>
                         </li>
                         {teams.map((team) => (
