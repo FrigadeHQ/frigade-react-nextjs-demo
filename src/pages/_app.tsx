@@ -1,18 +1,19 @@
 import '../styles/globals.css';
-import type {AppProps} from 'next/app';
-import {FrigadeProvider} from '@frigade/react';
+import type { AppProps } from 'next/app';
+import { FrigadeProvider } from '@frigade/react';
 import React from 'react';
-import {Toaster} from 'react-hot-toast';
-import {getOrganizationId, getUserId} from '../utils/users';
-import {useRouter} from 'next/router';
+import { Toaster } from 'react-hot-toast';
+import { getOrganizationId, getUserId } from '../utils/users';
+import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
     <FrigadeProvider
-      publicApiKey='api_public_A1SeXKvVMQJcnjqRHcsDgUMMwPzrSQSRihgjwRnPiOBi2bB7yA4Oi3nmriKgBSU5'
+      publicApiKey='api_public_GY6O5JS99XTL2HAXU0D6OQHYQ7I706P5I9C9I7CEZFNFUFRARD2DVDSMFW3YT3SV'
       userId={getUserId()}
       organizationId={getOrganizationId()}
       config={{

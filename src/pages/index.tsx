@@ -1,15 +1,16 @@
-import type {NextPage} from 'next';
-import React, {useCallback, useEffect} from 'react';
+import type { NextPage } from 'next';
+import React from 'react';
 import Head from 'next/head';
-import {StopIcon} from '@heroicons/react/24/outline';
-import {ChevronDownIcon, MagnifyingGlassIcon,} from '@heroicons/react/20/solid';
-import {classNames} from '../utils/classes';
-import {FrigadeChecklist, StepData, useFlows, useUser,} from '@frigade/react';
-import {getUserId} from '../utils/users';
+import { StopIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
+import { classNames } from '../utils/classes';
+import { FrigadeTour, useFlows, useUser } from '@frigade/react';
+import { getOrganizationId, getUserId } from '../utils/users';
 import Placeholder from '../components/Placeholder';
 import Script from 'next/script';
 import TopBanner from '../components/TopBanner';
 import DemoCTAs from '../components/DemoCTAs';
+import { Frigade } from '@frigade/js';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -17,53 +18,14 @@ const teams = [
   { id: 3, name: '', href: '#', initial: 'C', current: false },
 ];
 
-const FLOW_ID_CHECKLIST = 'flow_cKrTqPEh';
+const frigade = new Frigade(
+  "api_public_GY6O5JS99XTL2HAXU0D6OQHYQ7I706P5I9C9I7CEZFNFUFRARD2DVDSMFW3YT3SV",
+  {userId: getUserId(), groupId: getOrganizationId() });
+
+
 const Home: NextPage = () => {
-  const { getCurrentStepIndex, getFlowStatus, isFlowAvailableToUser } = useFlows();
-  const {  addPropertiesToUser } = useUser();
-
-  const currentStepIndex = getCurrentStepIndex(FLOW_ID_CHECKLIST);
-  const flowStatus = getFlowStatus(FLOW_ID_CHECKLIST);
-  const isVisible = isFlowAvailableToUser(FLOW_ID_CHECKLIST);
-
-
-  useEffect(() => {
-    console.log('currentStepIndex', currentStepIndex);
-
-  }, [currentStepIndex]);
-
-  useEffect(() => {
-    console.log('getFlowStatus', flowStatus);
-  }, [flowStatus]);
-
-  useEffect(() => {
-    addPropertiesToUser({orgId: 14645})
-  }, []);
-
-
-  const handleButtonClick = useCallback(
-
-      (
-        step: StepData,
-        index?: number,
-        cta?: "primary" | "secondary" | "link" | "back" | "collapse" | "expand"
-      ) => {
-        // const props = step.props;
-        // if (cta === "primary" && (props?.primaryLink || props?.primaryLegacyLink)) {
-        //   handleLink(history, props.primaryLink, props.primaryLegacyLink, props.primaryTarget);
-        // } else if (cta === "secondary" && (props?.secondaryLink || props?.secondaryLegacyLink)) {
-        //   handleLink(
-        //     history,
-        //     props.secondaryLink,
-        //     props.secondaryLegacyLink,
-        //     props.secondaryTarget
-        //   );
-        // }
-        return false;
-      },
-    [history]
-  );
-
+  const { trackEventForUser } = useUser();
+  const { refresh } = useFlows()
 
   return (
     <>
@@ -85,16 +47,6 @@ const Home: NextPage = () => {
           <div
             id='reward'
             className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[2500]'
-          />
-          <FrigadeChecklist
-            // appearance={appearance}
-            // className={styles.component}
-            // customVariables={customVariables}
-            flowId={FLOW_ID_CHECKLIST}
-            type="modal"
-            onButtonClick={handleButtonClick}
-            // onDismiss={() => handleDismiss(flow.id)}
-            visible={isVisible} // visibility map is only changed on onDismiss call
           />
           <div className=''>
             {/* Static sidebar for desktop */}
@@ -141,14 +93,23 @@ const Home: NextPage = () => {
                       </div>
                       <ul role='list' className='-mx-2 mt-2 space-y-1'>
                         <li>
-                          <button className='group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold items-center'
-                            onClick={() => {
-                              addPropertiesToUser({
-                                currentRoute: '/home',
-                              })
+                          <button className='pointer rounded hover:bg-gray-50 p-2 text-sm leading-6 font-semibold items-center text-gray-600 hover:text-gray-800'
+                            onClick={async () => {
+                             await frigade.track("finish_step_1")
+                              refresh()
                             }}
                           >
-                           Set current route to /home
+                           Click to trigger event to finish step 1 in tour
+                          </button>
+                        </li>
+                        <li>
+                          <button className='pointer rounded hover:bg-gray-50 p-2 text-sm leading-6 font-semibold items-center text-gray-600 hover:text-gray-800'
+                            onClick={async () => {
+                              await frigade.track("finish_step_2")
+                              refresh()
+                            }}
+                          >
+                           Click to trigger event to finish step 2 in tour
                           </button>
                         </li>
                         {teams.map((team) => (
@@ -274,7 +235,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </>
-
+    <FrigadeTour flowId="flow_9WjaRrqk" />
     </>
   );
 };

@@ -151,10 +151,17 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@frigade/react@^1.38.43":
-  version "1.38.43"
-  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.38.43.tgz#9cf110d0cddb14b7fbc1ccbc55984faf8ef881b4"
-  integrity sha512-/cg1mFQz6ev1NXw+iyB0psG7CP0FMWsGlJ8fwPYM90NCulzNeT4i1r8NCy+e+eYCA6sU/HrBhFPgpmz02rC6Jg==
+"@frigade/js@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@frigade/js/-/js-0.5.4.tgz#e3a7a1c996cb7affcf160c7acd70ea531ee58d95"
+  integrity sha512-AAHUbIWAwRrpWLhbG0cXE7RUi+3x/oEZpcwOebn9thVGexPqsDewLnfvydLwUW6Hpy7RbqeMY0bLoS+ogro92w==
+  dependencies:
+    uuid "^9.0.0"
+
+"@frigade/react@^1.38.45":
+  version "1.38.45"
+  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.38.45.tgz#013b501099ed7009a7f3c25385fa85a5797fd4eb"
+  integrity sha512-qU+DPriyaSfLe0LngM/CuAprDH5b2N7bvRWb6Xrk2m7Y3+9DlQxLtvL2jK/T1eHvNpl5Lutbk1eeIYKC3QEUfA==
   dependencies:
     core-js-pure "^3.32.0"
     dompurify "^3.0.1"
