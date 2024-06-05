@@ -2,8 +2,7 @@ steps:
   - id: frigade-profile-tooltip
     title: Your profile lives here
     subtitle: Unfortunately, it's utterly and completely useless in this demo
-    primaryButtonTitle: Got it
-    completionCriteria: user.event('finish_step_1').count >= 1
+    completionCriteria: user.event('finish_step_1').count > 0
     imageUri: https://frigade.com/img/examples/grey-box-two.svg
     selector: .frigade-profile-tooltip
     props:
@@ -13,10 +12,8 @@ steps:
   - id: frigade-on-page-tooltip
     title: Seen enough?
     subtitle: Go deeper with the Frigade developer documentation.
-    primaryButtonTitle: Continue
-    secondaryButtonTitle: View docs
-    secondaryButtonUri: https://docs.frigade.com/
     selector: "#frigade-on-page-tooltip"
+    completionCriteria: user.event('finish_step_2').count > 0
 
   - id: frigade-sidebar-tooltip
     title: Gently guide users with hints
