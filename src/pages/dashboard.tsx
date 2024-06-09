@@ -1,11 +1,8 @@
 import type { NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Head from 'next/head';
 import { StopIcon } from '@heroicons/react/24/outline';
-import {
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-} from '@heroicons/react/20/solid';
+import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { classNames, WELCOME_MODAL_STYLE } from '../utils/classes';
 import {
   FrigadeAnnouncement,
@@ -17,7 +14,7 @@ import {
   StepData,
   useFlowOpens,
   useFlows,
-  useUser,
+  useUser
 } from '@frigade/react';
 import { getUserId } from '../utils/users';
 import Placeholder from '../components/Placeholder';
@@ -31,13 +28,14 @@ import {
   FLOW_ID_CHECKLIST,
   FLOW_ID_DEMO_COMPLETE_MODAL,
   FLOW_ID_EMBEDDED_TIP,
-  FLOW_ID_TOUR,
+  FLOW_ID_TOUR
 } from '../utils/flow-ids';
 
 const EMBEDDED_TIP_STEP_ID = 'embeddedTips';
 const PRODUCT_HINTS_STEP_ID = 'productHints';
 const ANNOUNCEMENTS_STEP_ID = 'announcements';
 export const ANNOUNCEMENT_STEP_ID = 'announcements';
+const CHECKLIST_FIRST_STEP_ID = 'registration';
 
 const teams = [
   { id: 1, name: '', href: '#', initial: 'A', current: false },
@@ -55,7 +53,7 @@ const Home: NextPage = () => {
     position: 'fixed',
   });
   const { setOpenFlowState } = useFlowOpens();
-  const { getFlowStatus, getStepStatus, markFlowNotStarted } = useFlows();
+  const { getFlowStatus, getStepStatus, markFlowNotStarted, markStepCompleted, isLoading } = useFlows();
   const { addPropertiesToUser } = useUser();
   const [hasShownChecklistOnLoad, setHasShownChecklistOnLoad] = useState(false);
 
@@ -82,10 +80,15 @@ const Home: NextPage = () => {
     }
     reward();
     setHasShownChecklistOnLoad(true);
-    setTimeout(() => {
-      setOpenFlowState(FLOW_ID_CHECKLIST, true);
-    }, 700);
+    setOpenFlowState(FLOW_ID_CHECKLIST, true);
   }, [hasShownChecklistOnLoad, setHasShownChecklistOnLoad, setOpenFlowState]);
+
+  useLayoutEffect(() => {
+    if (!isLoading) {
+      markStepCompleted(FLOW_ID_CHECKLIST, CHECKLIST_FIRST_STEP_ID)
+      console.log('completed')
+    }
+  }, [isLoading])
 
   const isMobile = width <= 1024;
 

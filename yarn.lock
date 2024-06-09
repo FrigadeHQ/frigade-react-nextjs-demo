@@ -151,10 +151,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@frigade/react@^1.38.38":
-  version "1.38.38"
-  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.38.38.tgz#2fab36cc5f25027f4dd067cbb12b5f04dbff6d88"
-  integrity sha512-GlDwq8M6d8dKqRjYsUzeZiPvUpqdMUNRbnUoAlcS3sNNGGDTIG48/Q6/JNtVMOND7EESUiHoIim4BPcRyfaBhg==
+"@frigade/react@^1.38.45":
+  version "1.38.45"
+  resolved "https://registry.yarnpkg.com/@frigade/react/-/react-1.38.45.tgz#013b501099ed7009a7f3c25385fa85a5797fd4eb"
+  integrity sha512-qU+DPriyaSfLe0LngM/CuAprDH5b2N7bvRWb6Xrk2m7Y3+9DlQxLtvL2jK/T1eHvNpl5Lutbk1eeIYKC3QEUfA==
   dependencies:
     core-js-pure "^3.32.0"
     dompurify "^3.0.1"
