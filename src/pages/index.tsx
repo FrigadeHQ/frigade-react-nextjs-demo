@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { StopIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { classNames } from '../utils/classes';
-import { FrigadeTour, useFlows, useUser } from '@frigade/react';
+import { FrigadeTour, useFlows } from '@frigade/react';
 import { getOrganizationId, getUserId } from '../utils/users';
 import Placeholder from '../components/Placeholder';
 import Script from 'next/script';
@@ -22,10 +22,25 @@ const frigade = new Frigade(
   "api_public_GY6O5JS99XTL2HAXU0D6OQHYQ7I706P5I9C9I7CEZFNFUFRARD2DVDSMFW3YT3SV",
   {userId: getUserId(), groupId: getOrganizationId() });
 
+const flowId = "flow_9WjaRrqk";
 
 const Home: NextPage = () => {
-  const { trackEventForUser } = useUser();
-  const { refresh } = useFlows()
+  const { refresh, getCurrentStepIndex, getStepStatus, getFlowSteps, isLoading } = useFlows()
+  const currentStepIndex = getCurrentStepIndex(flowId)
+  const steps = getFlowSteps(flowId)
+
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+
+    console.log(steps)
+
+    console.log("Current step index", currentStepIndex);
+    console.log("Current step id", steps[currentStepIndex].id);
+    console.log("Step status", getStepStatus(flowId, steps[currentStepIndex].id));
+
+  }, [currentStepIndex]);
 
   return (
     <>
