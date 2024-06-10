@@ -25,22 +25,22 @@ const frigade = new Frigade(
 const flowId = "flow_9WjaRrqk";
 
 const Home: NextPage = () => {
-  const { refresh, getCurrentStepIndex, getStepStatus, getFlowSteps, isLoading } = useFlows()
+  const { refresh, getCurrentStepIndex, getStepStatus, getFlowSteps, getFlowStatus, isLoading } = useFlows()
   const currentStepIndex = getCurrentStepIndex(flowId)
   const steps = getFlowSteps(flowId)
+  const flowStatus = getFlowStatus(flowId)
 
   useEffect(() => {
     if (isLoading) {
       return;
     }
 
-    console.log(steps)
-
     console.log("Current step index", currentStepIndex);
     console.log("Current step id", steps[currentStepIndex].id);
     console.log("Step status", getStepStatus(flowId, steps[currentStepIndex].id));
+    console.log("Flow status", flowStatus);
 
-  }, [currentStepIndex]);
+  }, [currentStepIndex, flowStatus]);
 
   return (
     <>
